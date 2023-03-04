@@ -14,14 +14,14 @@
 
   <style>
     body {
-      height: 700px !important;
-      width: 470px !important;
-
+      width: 700px !important;
+      height: 100vh;
+      margin: 0 auto;
       /* to centre page on screen*/
-      margin: 1px 0px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: serif;
+      /* margin:1px 0px;
+     margin-left: auto;
+     margin-right: auto;
+     font-family:  serif; */
     }
 
     .farhana-table-1-col-1 {
@@ -71,7 +71,7 @@
 
     .farhana-table-3 {
       margin: 0 auto;
-      width: 100%;
+      width: 95%;
       margin-top: 10px;
 
     }
@@ -208,6 +208,88 @@
       text-decoration: overline;
       text-align: right;
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .hostiptal_info {
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hostipal_img {
+      width: 20%;
+      margin: 0 auto;
+    }
+
+    .hostipal_img img {
+      width: 100%;
+    }
+
+    .cash_recipt_wrapper {
+      margin-top: 10px;
+    }
+
+    .cash_recipt_wrapper h2 {
+      text-align: center;
+      font-weight: 600;
+      font-size: 20px;
+      text-decoration: underline;
+    }
+
+    .patient_details_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .patient_left_details p {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: Arial, sans-serif;
+    }
+
+    .patient_right_details p {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: Arial, sans-serif;
+    }
+
+    .investication_wrapper {
+      margin-top: 10px;
+      padding: 10px;
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    th {
+      background-color: gray;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    thead {
+      text-align: center;
+      border: 1px solid gray;
+    }
+    /* tbody{
+      text-align: center;
+    } */
   </style>
 
 </head>
@@ -220,12 +302,12 @@ $address_report = $this->session->userdata['logged_in']['address_report'];
 $others_report = $this->session->userdata['logged_in']['others_report'];
 ?>
 
-<body style="color:#000; text-align: center;">
+<body>
 
 
-  <div style="margin: 0 auto;" class="container">
+  <!-- <div> -->
 
-    <div style="margin-left: 30px;">
+  <!-- <div>
 
       <table class="farhana-table-1">
         <tr>
@@ -233,23 +315,40 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
             <img height="60px" width="60px" src="uploads/hospital_logo/<?= $hos_logo ?>">
           </td>
           <td>
-            <h1 class="" style="margin-bottom: 4px; font-size: 18px; text-align: center;margin-left: 5px;">
-              <?= $hospital_title_eng_report ?>
-            </h1>
+           <h1 class="" style="margin-bottom: 4px; font-size: 18px; text-align: center;margin-left: 5px;">
+             <?= $hospital_title_eng_report ?>
+           </h1>
 
-            <h1 style="margin-top: 0px; font-size: 16px; text-align: center;margin-left: 5px;">
-              <?= $hospital_title_ban_report ?>
-            </h1>
+           <h1 style="margin-top: 0px; font-size: 16px; text-align: center;margin-left: 5px;">
+            <?= $hospital_title_ban_report ?>
+          </h1>
 
-            <p class="first-p"><?= $address_report ?></p>
-            <p class="first-p-1"><?= $others_report ?></p>
+          <p class="first-p"><?= $address_report ?></p>
+          <p class="first-p-1"><?= $others_report ?></p>
           </td>
 
         </tr>
       </table>
 
+  </div> -->
+  <div class="pdf_container">
+    <div class="hostiptal_info">
+      <div class="hostipal_img">
+        <img src="uploads/hospital_logo/<?= $hos_logo ?>" alt="uploads/hospital_logo/<?= $hos_logo ?>">
+      </div>
+
+      <div class="hospital_details">
+        <h3><?= $hospital_title_eng_report ?></h3>
+        <h4><?= $hospital_title_ban_report ?></h4>
+        <p><?= $address_report ?></p>
+        <p><?= $others_report ?></p>
+      </div>
+
     </div>
-    <table class="farhana-table-3">
+    <div class="cash_recipt_wrapper">
+      <h2 style="text-align: center;">CASH RECEIPT</h2>
+    </div>
+    <!-- <table class="table table-striped">
       <tr>
         <td class="table-1-col-1"></td>
         <td class="table-1-col-1">
@@ -257,147 +356,179 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
         </td>
         <td class="table-1-col-1"></td>
       </tr>
-    </table>
+    </table> -->
+  </div>
 
-
-
-    <table class="farhana-table-3">
-      <tr>
-        <td colspan="2"><b>Bill No: </b><b><b><label id="invoice"><?= $test_info[0]['test_order_id'] ?></label></td>
-        <td><b><b>Date: </b><label id="date_time"><?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></label></td>
-      </tr>
-      <tr>
-        <td colspan="2"><b>Patient Name: </b><b><b><label id="patient_name"><?= $test_info[0]['patient_name'] ?></td>
-      <tr>
-        <td style="text-align: left"><b>Sex: </b><b><b><label id="gender"><?= $test_info[0]['gender'] ?><b> / Age:</b><label id="age"><?= $test_info[0]['age'] ?></label></td>
-        <td class="text-left">
-        <td><b>Mob: </b><b><b><label id="phone_no"><?= $test_info[0]['mobile_no'] ?></label></td>
-      </tr>
-
-      <?php if (!empty($uhid_info)) { ?>
-        <td colspan="2"><b>UHID: </b><label id="uhid"><?= $uhid_info[0]['gen_id'] ?></label></td> <?php } ?>
-
-      </tr>
-
-      <tr>
-        <td colspan="3" class="doctor-name"><b>Dr. Name: </b><b><b><label id="ref_by"><?= $test_info[0]['ref_doc_name'] ?></label></td>
-      </tr>
-
-
+  <div class="patient_details_wrapper">
+    <div class="patient_left_details">
+      <p>Bill No: <?= $test_info[0]['test_order_id'] ?></p>
+      <p>Patient Name: <?= $test_info[0]['patient_name'] ?> </p>
+      <p>Sex: <?= $test_info[0]['gender'] ?></p>
       <?php if ($is_ipd_patient == 1) { ?>
-        <tr>
-          <td colspan="2" class="doctor-name"><b>Ipd Patient Id: </b><b><b><label id="ipd_patient_id"><?= $ipd_info[0]['patient_info_id'] ?></label></td>
+        <p>Ipd Patient Id: <?= $ipd_info[0]['patient_info_id'] ?></p>
+      <?php } ?>
+      <p>Doctor Name: <?= $test_info[0]['ref_doc_name'] ?></p>
 
-          <td colspan="3" class="doctor-name"><b>Cabin No: </b><b><b><label id="cabin_no"><?= $ipd_info[0]['room_title'] ?></label></td>
+    </div>
+    <div class="patient_right_details">
+      <p>Date: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></p>
+      <p>Mobile No: <?= $test_info[0]['mobile_no'] ?></p>
+      <?php if (!empty($uhid_info)) { ?>
+        <p>UHID: <?= $uhid_info[0]['gen_id'] ?></p>
+      <?php } ?>
+      <p>Age: <?= $test_info[0]['age'] ?></p>
+      <?php if ($is_ipd_patient == 1) { ?>
+        <p>Cabin No: <?= $ipd_info[0]['room_title'] ?></p>
+      <?php } ?>
+    </div>
+  </div>
+
+
+
+
+  <!-- <table class="farhana-table-3">
+    <tr>
+      <td colspan="2"><b>Bill No: </b><b><b><label id="invoice"><?= $test_info[0]['test_order_id'] ?></label></td>
+      <td><b><b>Date: </b><label id="date_time"><?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Patient Name: </b><b><b><label id="patient_name"><?= $test_info[0]['patient_name'] ?></td>
+    <tr>
+      <td style="text-align: left"><b>Sex: </b><b><b><label id="gender"><?= $test_info[0]['gender'] ?><b> / Age:</b><label id="age"><?= $test_info[0]['age'] ?></label></td>
+      <td class="text-left">
+      <td><b>Mob: </b><b><b><label id="phone_no"><?= $test_info[0]['mobile_no'] ?></label></td>
+    </tr>
+
+    <?php if (!empty($uhid_info)) { ?>
+      <td colspan="2"><b>UHID: </b><label id="uhid"><?= $uhid_info[0]['gen_id'] ?></label></td> <?php } ?>
+
+    </tr>
+
+    <tr>
+      <td colspan="3" class="doctor-name"><b>Dr. Name: </b><b><b><label id="ref_by"><?= $test_info[0]['ref_doc_name'] ?></label></td>
+    </tr>
+
+
+    <?php if ($is_ipd_patient == 1) { ?>
+      <tr>
+        <td colspan="2" class="doctor-name"><b>Ipd Patient Id: </b><b><b><label id="ipd_patient_id"><?= $ipd_info[0]['patient_info_id'] ?></label></td>
+
+        <td colspan="3" class="doctor-name"><b>Cabin No: </b><b><b><label id="cabin_no"><?= $ipd_info[0]['room_title'] ?></label></td>
+      </tr>
+
+    <?php } ?>
+
+
+
+  </table> -->
+
+
+  <table class="investication_wrapper">
+    <thead>
+      <th>SL</th>
+      <th>Name Of Investigation</th>
+      <th>Amount</th>
+    </thead>
+    <!-- <tr>
+      <th class="farhana-table-4-col-1">
+        SL
+      </th>
+      <th class="farhana-table-4-col-2">
+        Name Of Investigation
+      </th>
+      <th class="farhana-table-4-col-3">
+        Amount
+      </th>
+    </tr> -->
+
+    <tbody id="patient_ordered_test_table">
+      <?php foreach ($order_info as $key => $value) {
+
+      ?>
+
+        <tr>
+          <td>
+            <?= $key + 1 ?>
+          </td>
+          <td><?= $value['sub_test_title'] ?></td>
+          <td><?= $value['price'] ?></td>
         </tr>
 
       <?php } ?>
+    </tbody>
+
+  </table>
 
 
+  <div class="static-data">
 
-    </table>
+    <div style=" padding-bottom:5px">
+      <table style="margin-top:60px;margin-left:70px">
+        <tr>
+          <td class="authorize">Authorize Sig: <label id="booked_by"><?= $test_info[0]['operator_name'] ?></label></td>
+          <td class="tranform-text"><span><label id="payment_status">
 
-    <table class="farhana-table-4">
-      <tr>
-        <th class="farhana-table-4-col-1">
-          SL
-        </th>
-        <th class="farhana-table-4-col-2">
-          Name Of Investigation
-        </th>
-        <th class="farhana-table-4-col-3">
-          Amount
-        </th>
-      </tr>
+                <?php if ($test_info[0]['payment_status'] == "paid") {
+                  echo "Paid";
+                } else {
+                  echo "Due";
+                }
+                ?>
 
-      <tbody id="patient_ordered_test_table">
-        <?php foreach ($order_info as $key => $value) {
+              </label></span></td>
+        </tr>
 
-        ?>
-
-          <tr>
-            <td class="farhana-table-4-col-1">
-              <?= $key + 1 ?>
-            </td>
-            <td class="farhana-table-4-col-2"><?= $value['sub_test_title'] ?></td>
-            <td style="text-align: right !important;" class="farhana-table-4-col-3"><?= $value['price'] ?></td>
-          </tr>
-
-        <?php } ?>
-      </tbody>
-
-    </table>
+      </table>
+      <table class="farhana-table-5" style="margin-top:-100px;margin-left:100px;margin-bottom:10px;">
+        <tr>
+          <td rowspan="6"></td>
+          <td><b>Total Amount </b></td>
+          <td> :<label id="total_amount"><?= $test_info[0]['total_amount'] ?></label></td>
 
 
-    <div class="static-data">
+        </tr>
+        <tr>
 
-      <div style=" padding-bottom:5px">
-        <table style="margin-top:60px;margin-left:70px">
-          <tr>
-            <td class="authorize">Authorize Sig: <label id="booked_by"><?= $test_info[0]['operator_name'] ?></label></td>
-            <td class="tranform-text"><span><label id="payment_status">
-
-                  <?php if ($test_info[0]['payment_status'] == "paid") {
-                    echo "Paid";
-                  } else {
-                    echo "Due";
-                  }
-                  ?>
-
-                </label></span></td>
-          </tr>
-
-        </table>
-        <table class="farhana-table-5" style="margin-top:-100px;margin-left:100px;margin-bottom:10px;">
-          <tr>
-            <td rowspan="6"></td>
-            <td><b>Total Amount </b></td>
-            <td> :<label id="total_amount"><?= $test_info[0]['total_amount'] ?></label></td>
+          <td><b>Vat(+)</b></td>
+          <td> :<label id="vat"><?= $test_info[0]['vat'] ?></label></td>
 
 
-          </tr>
-          <tr>
+        </tr>
+        <tr>
 
-            <td><b>Vat(+)</b></td>
-            <td> :<label id="vat"><?= $test_info[0]['vat'] ?></label></td>
-
-
-          </tr>
-          <tr>
-
-            <td><b>Dis(-) </b></td>
-            <td> :<label id="total_discount"><?= $test_info[0]['total_discount'] ?></label>
+          <td><b>Dis(-) </b></td>
+          <td> :<label id="total_discount"><?= $test_info[0]['total_discount'] ?></label>
 
 
-          </tr>
-          <tr>
+        </tr>
+        <tr>
 
-            <td><b>Net Amount </b></td>
-            <td> :<label id="net_total"><?= ($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount'] ?></label></td>
-
-
-          </tr>
-          <tr>
-
-            <td><b>Received Amount </b></td>
-            <td> :<label id="paid_amount"><?= $test_info[0]['paid_amount'] ?></label></td>
+          <td><b>Net Amount </b></td>
+          <td> :<label id="net_total"><?= ($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount'] ?></label></td>
 
 
-          </tr>
-          <tr>
+        </tr>
+        <tr>
 
-            <td><b>Due Amount </b></td>
-            <td> :<label id="due_amnt"><?= (($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount']) - $test_info[0]['paid_amount'] ?></label></td>
-
-
-          </tr>
+          <td><b>Received Amount </b></td>
+          <td> :<label id="paid_amount"><?= $test_info[0]['paid_amount'] ?></label></td>
 
 
-        </table>
+        </tr>
+        <tr>
 
-      </div>
+          <td><b>Due Amount </b></td>
+          <td> :<label id="due_amnt"><?= (($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount']) - $test_info[0]['paid_amount'] ?></label></td>
+
+
+        </tr>
+
+
+      </table>
 
     </div>
+
+  </div>
 
   </div>
 
