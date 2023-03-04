@@ -19,7 +19,7 @@
               </div> 
               <div class="col-md-4"></div>
               <div class="col-md-8">
-                <table  class="table table-bordered table-hover test_table_report">
+                <table  class="table table-striped">
                   <tbody>
                     <tr>
                       <td>Patient Name: </td>

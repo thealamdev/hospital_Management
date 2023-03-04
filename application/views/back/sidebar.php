@@ -5,7 +5,7 @@
  ?> 
 
 
- <section class="sidebar">
+ <section class="sidebar" style="background-color: #3E54AC;">
    <div class="w-80px mt-4 mb-3 ml-3">
     <!-- <img src="back_assets/img/dummy/header.png" alt=""> -->
   </div>

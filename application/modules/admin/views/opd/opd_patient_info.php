@@ -1672,7 +1672,7 @@
             type: type
           },
           success: function(data) {
-
+            
             $('#test_cart_details').html(data);
 
             $('input[type=search]').val('').change();
@@ -1690,9 +1690,10 @@
 
             if (dis_per != "") {
               dis = parseFloat(total) * parseFloat(dis_per) / 100;
+              
             }
 
-
+            // console.log(dis_per)
 
 
             $("#discount").val(dis);
@@ -2114,6 +2115,8 @@
           discount = parseFloat((parseFloat(total) * parseFloat(discount_percent) / 100));
           $("#discount").val(discount);
           $("#discount_store").val(discount);
+          console.log(discount_percent)
+          console.log($('#total_c_o').val())
 
         }
 

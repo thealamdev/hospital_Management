@@ -31850,7 +31850,7 @@ a.btn-fab {
 }
 
 .offcanvas .sidebar-menu>li {
-    border-bottom: 1px solid #f8f8f8
+    /* border-bottom: 1px solid #f8f8f8 */
 }
 
 .offcanvas .sidebar-menu>li.active:after {

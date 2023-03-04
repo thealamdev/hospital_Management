@@ -66,10 +66,10 @@
     <div class="card my-3 no-b">
       <div class="card-body">
         <!-- <div class="card-title">Simple usage</div> -->
-        <table id="test_table" class="table table-bordered table-hover table-striped test_table_report"
+        <table id="test_table" class="table table-striped"
         >
-        <thead>
-          <tr>
+        <thead class="bg-dark text-white">
+           
             <th>SL NO</th>
             <th>Patient ID</th>
             <th>Patient Name</th>
@@ -83,7 +83,7 @@
             <th>Tag</th>
             <th>File Tag</th>
             <th>Edit/Delete</th>
-          </tr>
+         
         </thead>
      </table>
    </div>

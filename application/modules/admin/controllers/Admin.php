@@ -4302,7 +4302,7 @@ class Admin extends MX_Controller
 				$sub_array[] = '<span class="badge badge-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>';
 			}
 
-			$sub_array[] = '<a target="_blank" href="admin/opd_each_billing_details/' . $row->patient_id . '/' . $row->p_id . '" class="btn btn-primary btn-sm">Details</a>';
+			$sub_array[] = '<a href="admin/opd_each_billing_details/' . $row->patient_id . '/' . $row->p_id . '" class="btn btn-primary btn-sm">Details</a>';
 
 			if ($is_phar != null) {
 				$phar_cust_info = $this->admin_model->select_with_where2('*', 'p_id="' . $row->patient_id . '"', 'customer');
@@ -4314,9 +4314,9 @@ class Admin extends MX_Controller
 
 
 
-			$sub_array[] = '<a target="_blank" href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
+			$sub_array[] = '<a class="btn btn-danger" href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
 
-			$sub_array[] = '<a target="_blank" href="admin/tag_receipt/' . $row->patient_id . '/' . $row->p_id . '" class="btn btn-primary btn-sm">Tag</a>';
+			$sub_array[] = '<a href="admin/tag_receipt/' . $row->patient_id . '/' . $row->p_id . '" class="btn btn-primary btn-sm">Tag</a>';
 
 			$sub_array[] = '<a target="_blank" href="admin/file_tag_receipt/' . $row->patient_id . '/' . $row->p_id . '" class="btn btn-primary btn-sm">File Tag</a>';
 
@@ -4433,7 +4433,7 @@ class Admin extends MX_Controller
 			$sub_array[] = $row->quack_doc_name;
 			$sub_array[] = date('d-M-y', strtotime($row->c_date));
 			$sub_array[] = $row->operator_name;
-			$sub_array[] = '<a target="_blank" href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
+			$sub_array[] = '<a href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
 
 			$data[] = $sub_array;
 
