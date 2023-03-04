@@ -1,0 +1,7 @@
+TRUNCATE sell;
+TRUNCATE buy;
+TRUNCATE stock;
+TRUNCATE sell_details;
+TRUNCATE buy_details;
+TRUNCATE pharmacy_due_collection;
+update product set p_current_stock=0;
