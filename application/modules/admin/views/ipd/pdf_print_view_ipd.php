@@ -58,7 +58,7 @@
     }
 
     th {
-      background-color: #222;
+      background-color: gray;
       color: white;
     }
 
@@ -88,6 +88,7 @@
     }
 
     .patient_details_wrapper {
+      margin-top: 10px;
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -131,19 +132,35 @@
       width: 50%;
     }
 
-    .developer_details{
-      margin-top: 30px;
-      font-size: 14px;
-      font-family: Arial, sans-serif;
+    .developer_details {
+      margin-top: 30px !important;
       width: 100%;
       margin: 0 auto;
       text-align: center;
+    }
+    .developer_details p{
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    .profile_footer_left p,span {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: Arial, sans-serif;
+    }
+
+    .profile_footer_right p,span {
+      font-size: 16px;
+      font-weight: 500;
+      font-family: Arial, sans-serif;
     }
   </style>
 
 </head>
 
 <?php
+
+use Picqer\Barcode\BarcodeGeneratorHTML;
 $hos_logo = $this->session->userdata['logged_in']['hospital_logo'];
 $hospital_title_eng_report = $this->session->userdata['logged_in']['hospital_title_eng_report'];
 $hospital_title_ban_report = $this->session->userdata['logged_in']['hospital_title_ban_report'];
@@ -176,7 +193,14 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
     <div class="patient_left_details">
 
-      <p class="details_width">Patient Id</p> <span>: <?= $patient_info[0]['patient_info_id'] ?></span><br>
+       
+      <?php
+        require 'vendor/autoload.php';
+        $generator = new BarcodeGeneratorHTML();
+        echo $generator->getBarcode( $patient_info[0]['patient_info_id'], $generator::TYPE_CODE_128);
+        ?>
+       
+      <p class="details_width" style="margin-top: 3px;">Patient Id</p> <span>: <?= $patient_info[0]['patient_info_id'] ?></span><br>
       <p class="details_width">Bill No</p> <span>: <?= $final_bill_info[0]['invoice_order_id'] ?></span> <br>
       <p class="details_width">Patient Name </p> <span>: <?= $patient_info[0]['patient_name'] ?> </span> <br>
       <p class="details_width">Doctor</p> <span>: <?= $patient_info[0]['doc_name'] ?></span> <br>
@@ -199,83 +223,9 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
     </div>
 
   </div>
-  <!-- here code end -->
-
-  <!-- <table style="padding-top:2px;  margin-left:5px; width:500px; text-align: center;font-size:15px ">
-    <tr>
-      <th style="text-align: left"><b>Bill No :</b> <span style="font-weight:normal"><?= $final_bill_info[0]['invoice_order_id'] ?></span></th>
-    </tr>
-
-    <tr>
-      <th style="text-align: left"><b>Patient ID :</b> <span style="font-weight:normal"><?= $patient_info[0]['patient_info_id'] ?></span></th>
-
-
-
-    </tr>
-    <tr>
-      <th style="text-align: left"><b>Patient Name :</b> <span style="font-weight:normal"><?= $patient_info[0]['patient_name'] ?></span></th>
-
-
-
-    </tr>
-    <tr>
-
-      <th style="text-align: left">Doctor : <span style="font-weight:normal"><?= $patient_info[0]['doc_name'] ?></span></th>
-
-    </tr>
-
-    <tr>
-
-      <th style="text-align: left">Ref. Doctor : <span style="font-weight:normal"><?= $patient_info[0]['ref_doc_name'] ?></span></th>
-
-    </tr>
-
-
-
-
-  </table>
-
-  <table style="margin-left:400px ; margin-top:-100px; width:500px; text-align: center;font-size:15px  ">
-    <tr>
-      <th style="text-align: left"><b>Admit Date :</b> <span style="font-weight:normal"><?= date('d-M-Y h:i:s a', strtotime($patient_info[0]['created_at'])) ?></span></th>
-    </tr>
-
-    <tr>
-      <th style="text-align: left"><b>Release Date :</b> <span style="font-weight:normal"><?= date('d-M-Y h:i:s a', strtotime($patient_info[0]['released_date'])) ?></span></th>
-    </tr>
-
-    <tr>
-      <th style="text-align: left"><b>Age :</b> <span style="font-weight:normal"><?= $patient_info[0]['age'] ?></span></th>
-
-
-
-    </tr>
-    <tr>
-
-      <th style="text-align: left"><b>Sex :</b> <span style="font-weight:normal"><?= $patient_info[0]['gender'] ?></span></th>
-
-    </tr>
-    <tr>
-
-    </tr>
-    <tr>
-
-      <th style="text-align: left"><b>Mobile :</b> <span style="font-weight:normal"><?= $patient_info[0]['mobile_no'] ?></span> </th>
-
-
-
-    </tr>
-
-
-
-  </table> -->
-
-
-
-
 
   <table class="table">
-    <thead>
+    <thead style="text-align: center;">
       <th>SL</th>
       <th>Service Type</th>
       <th>Service Name</th>
@@ -297,7 +247,7 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
       ?>
 
       <tr>
-        <td>1</td>
+        <td style="text-align: center;">1</td>
         <td>Admission</td>
         <td>Admission Fee</td>
         <td></td>
@@ -308,7 +258,7 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
 
       <tr>
-        <td>2</td>
+        <td style="text-align: center;">2</td>
 
         <td>Cabin</td>
 
@@ -380,7 +330,7 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
       <?php if ($service_info != null) { ?>
 
         <tr>
-          <td>3</td>
+          <td style="text-align: center;">3</td>
           <td>Service</td>
 
           <td>
@@ -482,12 +432,12 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
       <p class="detail_width">Dis. Ref. Name</p><span>:<?= $final_bill_info[0]['discount_ref'] ?></span> <br>
       <p class="detail_width">Status </p><span>:<?php if (round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'] <= $final_bill_info[0]['total_paid']) {
 
-                              echo "Paid";
-                            } else {
-                              echo "Due";
-                            }
+                                                  echo "Paid";
+                                                } else {
+                                                  echo "Due";
+                                                }
 
-                            ?></span>
+                                                ?></span>
     </div>
     <div class="profile_footer_right">
       <p class="detail_width">Total Amount</p><span>:<?php echo round($final_bill_info[0]['total_amount']) ?></span> <br>
@@ -502,126 +452,11 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
     </div>
   </div>
- 
+
+
   <div class="developer_details">
     <p>Date:<?php echo date('l jS \of F Y h:i:s A') ?> </p>
-    <p>Developed By Shah Alam</p>
-    <p>01795678789</p>
   </div>
-
-
-  <!-- <div style=" padding-bottom:10px" class="row">
-
-    <table>
-      <tr>
-        <th><b>User : </b><span style="font-weight:normal"><?= $patient_info[0]['operator_name'] ?></span></th>
-      </tr>
-
-      <tr>
-        <th><b>Status:</b>
-          <span style="font-weight:bold;font-size: 22px;">
-
-            <?php if (round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'] <= $final_bill_info[0]['total_paid']) {
-
-              echo "Paid";
-            } else {
-              echo "Due";
-            }
-
-            ?>
-
-          </span>
-        </th>
-      </tr>
-      <tr>
-        <th><b>Discount Refer Name : </b><span style="font-weight:normal"><?= $final_bill_info[0]['discount_ref'] ?></span></th>
-      </tr>
-      <tr>
-        <th>Developed By Shah Alam
-          </br>01795678789<br><?php echo date('l jS \of F Y h:i:s A') ?></th>
-    </table>
-
-    <table style="padding-top: 20px;
-          margin-left:400px;
-          margin-top: -130px;
-          width: 230px;
-          text-align: center;
-          font-size: 15px;" cellpadding="0px" cellspacing="0px">
-      <tr>
-        <td style="text-align: left; padding-bottom: 5px;"><b>Total Amount</b>:</td>
-        <td><?php echo round($final_bill_info[0]['total_amount']) ?></td>
-
-      </tr>
-
-      <tr>
-        <td style="text-align: left; padding-bottom: 5px;"><b>Discount Amount</b>:</td>
-        <td><?php echo $final_bill_info[0]['total_discount'] ?> </td>
-
-      </tr>
-      <tr>
-
-        <td style="text-align: left; padding-bottom:5px; width: 80% "><b>VAT(+)</b>:</td>
-        <td><?php echo $final_bill_info[0]['total_vat'] ?></td>
-
-      </tr>
-      <tr>
-
-        <?php $net_total = 0;
-
-        $net_total = round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'];
-
-
-        ?>
-
-        <td style="text-align: left; padding-bottom:5px;"><b>Payable Amount</b>:</td>
-        <td><?php echo $net_total ?> </td>
-
-
-      </tr>
-
-      <tr>
-
-        <td style="text-align: left;padding-bottom:5px;"><b>Amount Received</b>:</td>
-        <td><?php echo $final_bill_info[0]['total_paid'] ?></td>
-      </tr>
-
-      <tr>
-
-        <td style="text-align: left;"><b>Due Amount</b>:</td>
-        <td><?php echo $net_total - $final_bill_info[0]['total_paid'] ?></td>
-      </tr>
-
-    </table>
-
-
-  </div>
-
-  <table style="margin-top:350px; width:420px;padding-left:10px;   text-align: center;font-size:10px  ">
-
-
-
-
-    </tr>
-
-
-
-
-
-
-
-  </table> -->
-
-
-
-  </div>
-
-
-  </div>
-
-
-
-
-
 
 
 

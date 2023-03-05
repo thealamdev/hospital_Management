@@ -159,33 +159,6 @@
 
  <body>
 
-
-   <!-- <div> -->
-
-   <!-- <div>
-
-      <table class="farhana-table-1">
-        <tr>
-          <td class="farhana-table-1-col-1">
-            <img height="60px" width="60px" src="uploads/hospital_logo/<?= $hos_logo ?>">
-          </td>
-          <td>
-           <h1 class="" style="margin-bottom: 4px; font-size: 18px; text-align: center;margin-left: 5px;">
-             <?= $hospital_title_eng_report ?>
-           </h1>
-
-           <h1 style="margin-top: 0px; font-size: 16px; text-align: center;margin-left: 5px;">
-            <?= $hospital_title_ban_report ?>
-          </h1>
-
-          <p class="first-p"><?= $address_report ?></p>
-          <p class="first-p-1"><?= $others_report ?></p>
-          </td>
-
-        </tr>
-      </table>
-
-  </div> -->
    <div class="pdf_container">
      <div class="hostiptal_info">
        <div class="hostipal_img">
@@ -203,15 +176,7 @@
      <div class="cash_recipt_wrapper">
        <h2 style="text-align: center;">CASH RECEIPT</h2>
      </div>
-     <!-- <table class="table table-striped">
-      <tr>
-        <td class="table-1-col-1"></td>
-        <td class="table-1-col-1">
-          <p>CASH RECEIPT</p>
-        </td>
-        <td class="table-1-col-1"></td>
-      </tr>
-    </table> -->
+ 
    </div>
 
    <div class="patient_details_wrapper">
