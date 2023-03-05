@@ -83,8 +83,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 80%;
+      width: 90%;
       margin: 0 auto;
+    }
+
+    .profile_header_img{
+      width: 25%;
+    }
+
+    .profile_header_img img{
+      width: 100%;
+    }
+
+    .profile_header_info{
+      width: 65%;
     }
 
     .patient_details_wrapper {
@@ -113,7 +125,7 @@
     }
 
     .detail_width {
-      width: 200px;
+      width: 150px;
       display: inline-block;
     }
 
@@ -125,11 +137,11 @@
     }
 
     .profile_footer_left {
-      width: 50%;
+      width: 68%;
     }
 
     .profile_footer_right {
-      width: 50%;
+      width: 32%;
     }
 
     .developer_details {
@@ -225,7 +237,7 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
   </div>
 
   <table class="table">
-    <thead style="text-align: center;">
+    <thead style="text-align: left;">
       <th>SL</th>
       <th>Service Type</th>
       <th>Service Name</th>
@@ -428,9 +440,9 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
   <div class="profile_footer_wrapper">
     <div class="profile_footer_left">
-      <p class="detail_width">User</p><span>:<?= $patient_info[0]['operator_name'] ?></span> <br>
-      <p class="detail_width">Dis. Ref. Name</p><span>:<?= $final_bill_info[0]['discount_ref'] ?></span> <br>
-      <p class="detail_width">Status </p><span>:<?php if (round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'] <= $final_bill_info[0]['total_paid']) {
+      <p class="detail_width">User</p><span>: <?= $patient_info[0]['operator_name'] ?></span> <br>
+      <p class="detail_width">Dis. Ref. Name</p><span>: <?= $final_bill_info[0]['discount_ref'] ?></span> <br>
+      <p class="detail_width">Status </p><span>: <?php if (round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'] <= $final_bill_info[0]['total_paid']) {
 
                                                   echo "Paid";
                                                 } else {
@@ -440,15 +452,17 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
                                                 ?></span>
     </div>
     <div class="profile_footer_right">
-      <p class="detail_width">Total Amount</p><span>:<?php echo round($final_bill_info[0]['total_amount']) ?></span> <br>
-      <p class="detail_width">Discount Amount</p><span>:<?php echo $final_bill_info[0]['total_discount'] ?></span> <br>
-      <p class="detail_width">Vat(+)</p><span>:<?php echo $final_bill_info[0]['total_vat'] ?></span> <br>
+      <p class="detail_width">Total Amount</p><span>: <?php echo round($final_bill_info[0]['total_amount']) ?></span> <br>
+      <p class="detail_width">Service Charge(+)</p><span>: <?php echo $final_bill_info[0]['total_vat'] ?></span> <br>
       <?php $net_total = 0;
       $net_total = round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'];
       ?>
-      <p class="detail_width">Payable Amount</p> <span>:<?php echo $net_total ?></span> <br>
-      <p class="detail_width">Amount Receive</p><span>:<?php echo $final_bill_info[0]['total_paid'] ?></span> <br>
-      <p class="detail_width">Due Amount</p><span>:<?php echo $net_total - $final_bill_info[0]['total_paid'] ?></span>
+      <p class="detail_width">Payable Amount</p><span>: <?php echo $net_total ?></span> <br>
+      <p class="detail_width">Discount Amount(-)</p><span>: <?php echo $final_bill_info[0]['total_discount'] ?></span> <br>
+       
+       
+      <p class="detail_width">Amount Receive</p><span>: <?php echo $final_bill_info[0]['total_paid'] ?></span> <br>
+      <p class="detail_width">Due Amount</p><span>: <?php echo $net_total - $final_bill_info[0]['total_paid'] ?></span>
 
     </div>
   </div>

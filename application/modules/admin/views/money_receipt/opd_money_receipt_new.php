@@ -181,27 +181,32 @@
 
    <div class="patient_details_wrapper">
      <div class="patient_left_details">
-       <p class="details_width">Patient ID</p> <span><b>: <?= $test_info[0]['patient_id'] ?></b> </span>
+       <p class="details_width" style="margin-bottom: 4px;">Patient ID</p> <span><b>: <?= $test_info[0]['patient_id'] ?></b> </span>
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
-        echo $generator->getBarcode( $test_info[0]['patient_id'], $generator::TYPE_CODE_128);
+        echo $generator->getBarcode(  $test_info[0]['patient_id'], $generator::TYPE_CODE_128);
         ?>
 
-       <p class="details_width">Bill No</p> <span>: <?= $test_info[0]['test_order_id'] ?></span> <br>  
+       <p class="details_width" style="margin-top: 4px;">Bill No</p> <span>:<?= $test_info[0]['test_order_id'] ?></span> <br>  
        <p class="details_width">Patient Name </p> <span>:  <?= $test_info[0]['patient_name'] ?> </span> <br>
        <p class="details_width">Sex</p> <span>: <?= $test_info[0]['gender'] ?></span> <br>
-       
-       <p class="details_width">Doctor Name</p> <span>: <?= $test_info[0]['ref_doc_name'] ?></span>
+       <p class="details_width">Age</p> <span>: <?= $test_info[0]['age'] ?></span> <br>
+       <!-- <p class="details_width">Doctor Name</p> <span>: <?= $test_info[0]['ref_doc_name'] ?></span> -->
 
      </div>
      <div class="patient_right_details">
-       <p class="details_width">Date</p> <span>: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></span> <br>
+       <?php
+        require 'vendor/autoload.php';
+        $generator = new BarcodeGeneratorHTML();
+        echo $generator->getBarcode(   $test_info[0]['test_order_id']  , $generator::TYPE_CODE_128);
+        ?>
+       <p class="details_width" style="margin-top: 4px;">Date</p> <span>: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></span> <br>
        <p class="details_width">Mobile No </p> <span>: <?= $test_info[0]['mobile_no'] ?></span> <br>
        <?php if (!empty($uhid_info)) { ?>
          <p class="details_width">UHID</p> <span>: <?= $uhid_info[0]['gen_id'] ?></span> <br>
        <?php } ?>
-       <p class="details_width">Age</p> <span>: <?= $test_info[0]['age'] ?></span> <br>
+       <!-- <p class="details_width">Age</p> <span>: <?= $test_info[0]['age'] ?></span> <br> -->
        <?php if ($is_ipd_patient == 1) { ?>
          <p class="details_width">Cabin No</p> <span>: <?= $ipd_info[0]['room_title'] ?></span> <br>
        <?php } ?>
@@ -210,6 +215,7 @@
        <?php } ?>
      </div>
    </div>
+   <p class="details_width">Doctor Name</p> <span>: <?= $test_info[0]['ref_doc_name'] ?></span>
 
    <!-- <table class="farhana-table-3">
     <tr>
