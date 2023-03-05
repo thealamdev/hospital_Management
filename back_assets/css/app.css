@@ -6,7 +6,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+ 
  :root {
     --blue: #03a9f4;
     --indigo: #6610f2;
@@ -78,7 +78,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #ecf0f5
+    background-color: #2167bb
 }
 
 [tabindex="-1"]:focus {
@@ -178,6 +178,7 @@ sup {
 
 a {
     color: #03a9f4;
+    /* color:red !important; */
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects
@@ -2306,8 +2307,9 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #03a9f4;
-    border-color: #03a9f4
+    background-color: #2B3467;
+    border-color: #03a9f4;
+    /* vvi */
 }
 
 .btn-primary:hover {
@@ -2318,7 +2320,7 @@ fieldset:disabled a.btn {
 
 .btn-primary.focus,
 .btn-primary:focus {
-    box-shadow: 0 0 0 .2rem rgba(3, 169, 244, .5)
+    box-shadow: 0 0 0 .2rem rgba(67, 3, 244, 0.5)
 }
 
 .btn-primary.disabled,
@@ -23143,8 +23145,12 @@ header h2 {
     max-width: 100%
 }
 
+.item-style{
+    color:red !important;
+}
+
 .service-sidebar.sidebar-wrapper {
-    background-color: #f9f9fb;
+    background-color: #006064;
     border-radius: 5px;
     margin-bottom: 35px;
     padding: 20px
@@ -31840,7 +31846,9 @@ a.btn-fab {
 }
 
 .offcanvas .sidebar-menu li a:hover {
-    background-color: #f8f9fa
+    /* background-color: #f8f9fa */
+    background-color: #301E67;
+    /* vvi */
 }
 
 .offcanvas .sidebar-menu li i {
@@ -31851,6 +31859,7 @@ a.btn-fab {
 
 .offcanvas .sidebar-menu>li {
     /* border-bottom: 1px solid #f8f8f8 */
+    /* vvi */
 }
 
 .offcanvas .sidebar-menu>li.active:after {
@@ -31889,6 +31898,7 @@ a.btn-fab {
 }
 
 .sidebar-menu {
+    background: #2B3467;;
     list-style: outside none none;
     margin: 0;
     padding: 0;
@@ -31905,7 +31915,7 @@ a.btn-fab {
 .sidebar-menu>li>a {
     display: block;
     padding: 10px 5px 10px 15px;
-    color: #054b6ae3!important;
+    color:#fff;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: .4px
@@ -31914,12 +31924,15 @@ a.btn-fab {
 .sidebar-menu>li>a>span {
     position: absolute;
     margin-top: 3px;
-
+    font-family: 'Roboto';
+    color:white !important;
+    font-size: 12px;
 }
 
 .icon-sidebar{
    margin-right: 25px;
    font-size: 14px!important;
+   color:white !important;
 }
 .sidebar-menu>li .label {
     margin-right: 5px
@@ -31931,18 +31944,18 @@ a.btn-fab {
 }
 
 .sidebar-menu li.header {
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px 25px 10px 15px
 }
 
 .sidebar-menu li>a> {
-    color: #86939e
+    color: #86939e;
 }
 
 .sidebar-menu li>a>.icon-angle-left,
 .sidebar-menu li>a>.pull-right-container>.icon-angle-left {
     height: auto;
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 0;
     width: auto
 }
@@ -31983,7 +31996,8 @@ a.btn-fab {
     font-size: 12px;
     font-weight: 500;
     padding: 10px 5px 10px 15px;
-    color: #86939e
+    /* color: #86939e */
+    /* vvi */
 }
 
 .sidebar-menu .treeview-menu>li>a>.fa,
@@ -32138,7 +32152,7 @@ a.btn-fab {
     position: absolute;
     width: 270px;
     z-index: 9999;
-    background: #fff;
+    background: #00796b;
     -webkit-transition: -webkit-transform .3s ease-in-out, width .3s ease-in-out;
     -moz-transition: -moz-transform .3s ease-in-out, width .3s ease-in-out;
     -o-transition: -o-transform .3s ease-in-out, width .3s ease-in-out;

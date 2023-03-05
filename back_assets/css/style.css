@@ -3,9 +3,10 @@
   display: table;
   clear: both;
 }
-
+ 
 a {
   color: #5D6975;
+  /* color:red; */
   text-decoration: underline;
 }
 
@@ -14,8 +15,8 @@ body {
   width: 21cm;  
   height: 29.7cm; 
   margin: 0 auto; 
-  color: #001028;
-  background: #FFFFFF; 
+  color: #06285c;
+  background: #a81414; 
   font-family: Arial, sans-serif; 
   font-size: 12px; 
   font-family: Arial;

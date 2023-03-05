@@ -11,15 +11,15 @@
         </div>
     </div>
 </div>
-<div class="sticky">
-    <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+<div class="sticky" style="background: #2B3467;">
+    <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar accent-3">
         <div class="relative">
             <a href="#" data-toggle="offcan" class="paper-nav-toggle pp-nav-toggle">
                 <i></i>
             </a>
         </div>
         <!--Top Menu Start -->
-        <div class="navbar-custom-menu ">
+        <div class="navbar-custom-menu" style="background: #453C67;">
             <ul class="nav navbar-nav">
                 <!-- Messages-->
                 <li class="dropdown custom-dropdown messages-menu">
@@ -141,7 +141,7 @@
                 </a>
             </li> -->
             <!-- User Account-->
-            <li style="background-color: #0d51c1;margin-left: 15px;" class="dropdown custom-dropdown user user-menu">
+            <li style="background-color: #6D67E4;margin-left: 15px;" class="dropdown custom-dropdown user user-menu">
               <a style="width: 170px; text-align: center;" href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                 <span class="user-img">
                     <img class="rounded-circle" src="back_assets/img/users.png" width="24" alt="Admin">
