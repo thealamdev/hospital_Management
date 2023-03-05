@@ -17,196 +17,6 @@
        width: 700px !important;
        height: 100vh;
        margin: 0 auto;
-       /* to centre page on screen*/
-       /* margin:1px 0px;
-     margin-left: auto;
-     margin-right: auto;
-     font-family:  serif; */
-     }
-
-     .farhana-table-1-col-1 {
-       vertical-align: top;
-     }
-
-     .first-h1 {
-       font-size: 16px;
-       color: #111111;
-       text-align: center;
-       font-weight: 600;
-     }
-
-     .first-p {
-       font-size: 14px;
-       color: #111111;
-       text-align: center;
-       margin-top: -10px;
-
-     }
-
-     .first-p-1 {
-       font-size: 15px;
-       color: #111111 !important;
-       text-align: center;
-       margin-top: -10px;
-       font-family: 'BenchNine', sans-serif;
-
-     }
-
-     .farhana-table-2 {
-       width: 90%;
-     }
-
-     .table-1-col-1 {
-       width: 35%;
-       text-align: center;
-     }
-
-     .table-1-col-1 p {
-
-       font-weight: bold;
-       text-align: center;
-       font-size: 16px;
-       text-decoration: underline;
-     }
-
-     .farhana-table-3 {
-       margin: 0 auto;
-       width: 95%;
-       margin-top: 10px;
-
-     }
-
-     .farhana-table-3 tr td {
-       font-size: 12px;
-
-     }
-
-     .doctor-name {
-       font-size: 12px;
-     }
-
-     .text-right {
-       text-align: right;
-     }
-
-     .text-center {
-       text-align: center;
-     }
-
-     .farhana-table-4 {
-
-       width: 95%;
-       margin: 0 auto;
-       margin-top: 10px;
-       border-collapse: collapse;
-       border: 1px solid #111111;
-       font-size: 12px;
-     }
-
-     .farhana-table-4 tr th {
-       border: 1px solid #111111;
-       border-collapse: collapse !important;
-       text-align: center;
-       padding: 2px;
-       padding-left: 7px;
-     }
-
-     .farhana-table-4 tr th:nth-child(2) {
-       text-align: left;
-       width: 55%;
-     }
-
-     .farhana-table-4 tr td:nth-child(2) {
-       text-align: left;
-       width: 55%;
-     }
-
-     .farhana-table-4 tr td {
-       border: 1px solid #111111;
-       border-collapse: collapse !important;
-       text-align: center;
-       padding: 2px;
-       padding-left: 7px;
-     }
-
-     .farhana-table-5 {
-       margin-top: 10px;
-       width: 95%;
-       margin-left: 8px;
-
-     }
-
-     .farhana-table-6 {
-       margin-top: 50px;
-       width: 95%;
-       margin: 0 auto;
-
-     }
-
-     .farhana-table-5 tr td:nth-child(2) {
-       width: 25% !important;
-
-     }
-
-     .farhana-table-5 tr td:last-child {
-       width: 25% !important;
-
-     }
-
-
-     .farhana-table-4-col-1 {
-       width: 10%;
-     }
-
-     .farhana-table-4-col-2 {
-       width: 50%;
-     }
-
-     .farhana-table-4-col-3 {
-       width: 22%;
-     }
-
-     .farhana-table-5 tr td {
-
-       font-size: 12px;
-
-     }
-
-     .tranform-text {
-       font-size: 38px !important;
-       font-weight: bold;
-       transform: rotate(-0deg);
-       text-align: center;
-       vertical-align: middle;
-       width: 57%;
-     }
-
-     .unit-class {
-       font-size: 12px;
-       padding: 0px 0px;
-     }
-
-     .delivery {
-       font-size: 10px;
-     }
-
-     .last-p {
-       padding: 4px;
-       font-size: 10px;
-       border: 1px solid #111111;
-       border-radius: 13px;
-       width: 163px;
-       margin: 5px 0px;
-     }
-
-     .print {
-       font-size: 12px;
-     }
-
-     .authorize {
-       font-size: 15px;
-       text-decoration: overline;
-       text-align: right;
      }
 
      h1,
@@ -247,8 +57,7 @@
      .cash_recipt_wrapper h2 {
        text-align: center;
        font-weight: 600;
-       font-size: 20px;
-       text-decoration: underline;
+       font-size: 25px;
      }
 
      .patient_details_wrapper {
@@ -407,7 +216,7 @@
 
    <div class="patient_details_wrapper">
      <div class="patient_left_details">
-       <p class="details_width">Patient ID</p> <span>: <?= $test_info[0]['patient_id'] ?> </span>
+       <p class="details_width">Patient ID</p> <span><b>: <?= $test_info[0]['patient_id'] ?></b> </span>
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
@@ -476,20 +285,9 @@
    <table class="investication_wrapper">
      <thead>
        <th>SL</th>
-       <th>Name Of Investigation</th>
+       <th style="text-align: left;">Name Of Investigation</th>
        <th>Amount</th>
      </thead>
-     <!-- <tr>
-      <th class="farhana-table-4-col-1">
-        SL
-      </th>
-      <th class="farhana-table-4-col-2">
-        Name Of Investigation
-      </th>
-      <th class="farhana-table-4-col-3">
-        Amount
-      </th>
-    </tr> -->
 
      <tbody id="patient_ordered_test_table">
        <?php foreach ($order_info as $key => $value) {
@@ -513,11 +311,11 @@
    <div class="accounts_wrapper">
 
      <div class="payment_status_wrapper">
-       <h2 style="text-align: center;text-decoration:underline">PAYMENT DETAILS</h2>
+       <h2 style="text-align: center;font-size:20px">PAYMENT DETAILS</h2>
      </div>
      <div class="payment_details">
        <table>
-         <thead>
+         <thead style="text-align: left;">
            <th>Total Amount</th>
            <th>Vat (+)</th>
            <th>Discount (-)</th>
@@ -526,14 +324,14 @@
            <th>Due Amount</th>
          </thead>
 
-         <tbody>
+         <tbody style="text-align: left;font-size:18px">
            <tr>
-             <td><?= $test_info[0]['total_amount'] ?></td>
+             <td><b><?= $test_info[0]['total_amount'] ?></b></td>
              <td><?= $test_info[0]['vat'] ?></td>
              <td><?= $test_info[0]['total_discount'] ?></td>
-             <td><?= ($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount'] ?></td>
-             <td><?= $test_info[0]['paid_amount'] ?></td>
-             <td><?= (($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount']) - $test_info[0]['paid_amount'] ?></td>
+             <td><b><?= ($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount'] ?></b></td>
+             <td><b><?= $test_info[0]['paid_amount'] ?></b></td>
+             <td><b><?= (($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount']) - $test_info[0]['paid_amount'] ?></b></td>
            </tr>
          </tbody>
        </table>

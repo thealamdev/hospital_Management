@@ -624,8 +624,20 @@ class Admin extends MX_Controller
 	{
 
 
-		$hospital_logo = 'default_hospital.png';
-		$dashboard_img = 'default_dashboard.png';
+		$this->db->select('hospital_logo,dashboard_img');
+		$this->db->from('hospital');
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0) {
+			// do something with the results
+			foreach($query->result() as $row) {
+				 $row->hospital_logo;
+				 $row->dashboard_img;
+			}
+		}
+		
+		$hospital_logo = $row->hospital_logo;
+		$dashboard_img = $row->dashboard_img;
 
 		$data['active'] = 'add_hospital_form';
 		$data['page_title'] = 'Add Hospital Form';
