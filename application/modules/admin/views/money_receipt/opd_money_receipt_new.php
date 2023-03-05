@@ -221,24 +221,27 @@
      }
 
      .hostiptal_info {
-       flex-direction: column;
-       text-align: center;
-       width: 100%;
+       margin: 0 auto;
+       width: 80%;
        display: flex;
        justify-content: space-between;
      }
 
      .hostipal_img {
        width: 20%;
-       margin: 0 auto;
      }
 
      .hostipal_img img {
        width: 100%;
      }
 
+     .hospital_details {
+       width: 70%;
+     }
+
      .cash_recipt_wrapper {
        margin-top: 10px;
+       margin-bottom: 10px;
      }
 
      .cash_recipt_wrapper h2 {
@@ -254,7 +257,7 @@
        justify-content: space-between;
      }
 
-     .patient_left_details p {
+     .patient_left_details p,span {
        font-size: 16px;
        font-weight: 500;
        font-family: Arial, sans-serif;
@@ -317,6 +320,15 @@
        background: #222;
 
      }
+
+     .details_width{
+      width:100px;
+      display: inline-block;
+     }
+/* 
+     p,span{
+      display: inline-block;
+     } */
 
      /* tbody{
       text-align: center;
@@ -395,31 +407,32 @@
 
    <div class="patient_details_wrapper">
      <div class="patient_left_details">
-       <p>Patient ID: <?= $test_info[0]['patient_id'] ?> </p>
+       <p class="details_width">Patient ID</p> <span>: <?= $test_info[0]['patient_id'] ?> </span>
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
         echo $generator->getBarcode($test_info[0]['patient_id'], $generator::TYPE_CODE_128);
         ?>
 
-       <p>Bill No: <?= $test_info[0]['test_order_id'] ?></p>
-       <p>Patient Name: <?= $test_info[0]['patient_name'] ?> </p>
-       <p>Sex: <?= $test_info[0]['gender'] ?></p>
-       <?php if ($is_ipd_patient == 1) { ?>
-         <p>Ipd Patient Id: <?= $ipd_info[0]['patient_info_id'] ?></p>
-       <?php } ?>
-       <p>Doctor Name: <?= $test_info[0]['ref_doc_name'] ?></p>
+       <p class="details_width">Bill No</p> <span>: <?= $test_info[0]['test_order_id'] ?></span> <br>  
+       <p class="details_width">Patient Name </p> <span>:  <?= $test_info[0]['patient_name'] ?> </span> <br>
+       <p class="details_width">Sex</p> <span>: <?= $test_info[0]['gender'] ?></span> <br>
+       
+       <p class="details_width">Doctor Name</p> <span>: <?= $test_info[0]['ref_doc_name'] ?></span>
 
      </div>
      <div class="patient_right_details">
-       <p>Date: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></p>
-       <p>Mobile No: <?= $test_info[0]['mobile_no'] ?></p>
+       <p class="details_width">Date</p> <span>: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></span> <br>
+       <p class="details_width">Mobile No </p> <span>: <?= $test_info[0]['mobile_no'] ?></span> <br>
        <?php if (!empty($uhid_info)) { ?>
-         <p>UHID: <?= $uhid_info[0]['gen_id'] ?></p>
+         <p class="details_width">UHID</p> <span>: <?= $uhid_info[0]['gen_id'] ?></span> <br>
        <?php } ?>
-       <p>Age: <?= $test_info[0]['age'] ?></p>
+       <p class="details_width">Age</p> <span>: <?= $test_info[0]['age'] ?></span> <br>
        <?php if ($is_ipd_patient == 1) { ?>
-         <p>Cabin No: <?= $ipd_info[0]['room_title'] ?></p>
+         <p class="details_width">Cabin No</p> <span>: <?= $ipd_info[0]['room_title'] ?></span> <br>
+       <?php } ?>
+       <?php if ($is_ipd_patient == 1) { ?>
+         <p class="details_width">Ipd Patient Id</p> <span>: <?= $ipd_info[0]['patient_info_id'] ?></span>
        <?php } ?>
      </div>
    </div>
@@ -484,11 +497,11 @@
         ?>
 
          <tr>
-           <td>
+           <td style="text-align:center">
              <?= $key + 1 ?>
            </td>
            <td><?= $value['sub_test_title'] ?></td>
-           <td><?= $value['price'] ?></td>
+           <td style="text-align:center"><?= $value['price'] ?></td>
          </tr>
 
        <?php } ?>
