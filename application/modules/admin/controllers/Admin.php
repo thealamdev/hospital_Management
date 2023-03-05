@@ -9348,7 +9348,7 @@ class Admin extends MX_Controller
 
 			// $sub_array[] = '<a href="admin/ipd_reg_form/'.$row->p_id.'" class="btn btn-primary btn-sm" target="_blank">Form</a>';
 
-			$sub_array[] = '<a href="admin/get_ipd_patient_billing_info_pdf1/' . $row->p_id . '" class="btn btn-primary btn-sm" target="_blank">Print</a>';
+			$sub_array[] = '<a href="admin/get_ipd_patient_billing_info_pdf1/' . $row->p_id . '" class="btn btn-primary btn-sm">Print</a>';
 
 			if (count($is_phar) > 0) {
 				$sub_array[] = '<span style="color:green;">Yes</span><br><a target="_blank" href="admin/sell_product_details/' . $is_phar[0]['sell_id'] . '" class="btn btn-primary btn-sm">Info</a>';

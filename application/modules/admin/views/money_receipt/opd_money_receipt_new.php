@@ -220,7 +220,7 @@
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
-        echo $generator->getBarcode($test_info[0]['patient_id'], $generator::TYPE_CODE_128);
+        echo $generator->getBarcode( $test_info[0]['patient_id'], $generator::TYPE_CODE_128);
         ?>
 
        <p class="details_width">Bill No</p> <span>: <?= $test_info[0]['test_order_id'] ?></span> <br>  
