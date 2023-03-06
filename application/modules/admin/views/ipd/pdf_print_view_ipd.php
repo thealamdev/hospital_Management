@@ -87,15 +87,15 @@
       margin: 0 auto;
     }
 
-    .profile_header_img{
+    .profile_header_img {
       width: 25%;
     }
 
-    .profile_header_img img{
+    .profile_header_img img {
       width: 100%;
     }
 
-    .profile_header_info{
+    .profile_header_info {
       width: 65%;
     }
 
@@ -150,18 +150,21 @@
       margin: 0 auto;
       text-align: center;
     }
-    .developer_details p{
+
+    .developer_details p {
       font-size: 14px;
       font-family: Arial, sans-serif;
     }
 
-    .profile_footer_left p,span {
+    .profile_footer_left p,
+    span {
       font-size: 16px;
       font-weight: 500;
       font-family: Arial, sans-serif;
     }
 
-    .profile_footer_right p,span {
+    .profile_footer_right p,
+    span {
       font-size: 16px;
       font-weight: 500;
       font-family: Arial, sans-serif;
@@ -173,6 +176,7 @@
 <?php
 
 use Picqer\Barcode\BarcodeGeneratorHTML;
+
 $hos_logo = $this->session->userdata['logged_in']['hospital_logo'];
 $hospital_title_eng_report = $this->session->userdata['logged_in']['hospital_title_eng_report'];
 $hospital_title_ban_report = $this->session->userdata['logged_in']['hospital_title_ban_report'];
@@ -205,13 +209,13 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
     <div class="patient_left_details">
 
-       
+
       <?php
-        require 'vendor/autoload.php';
-        $generator = new BarcodeGeneratorHTML();
-        echo $generator->getBarcode( $patient_info[0]['patient_info_id'], $generator::TYPE_CODE_128);
-        ?>
-       
+      require 'vendor/autoload.php';
+      $generator = new BarcodeGeneratorHTML();
+      echo $generator->getBarcode($patient_info[0]['patient_info_id'], $generator::TYPE_CODE_128);
+
+      ?>
       <p class="details_width" style="margin-top: 3px;">Patient Id</p> <span>: <?= $patient_info[0]['patient_info_id'] ?></span><br>
       <p class="details_width">Bill No</p> <span>: <?= $final_bill_info[0]['invoice_order_id'] ?></span> <br>
       <p class="details_width">Patient Name </p> <span>: <?= $patient_info[0]['patient_name'] ?> </span> <br>
@@ -319,40 +323,19 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
 
           <?php }
           } ?>
-
         </td>
-
         <td>
-
           <?= $total_cabin_show ?>
-
-
         </td>
-
-
-
-
-
         <td><?= $total_cabin ?></td>
-
       </tr>
-
-
-
       <?php if ($service_info != null) { ?>
-
         <tr>
           <td style="text-align: center;">3</td>
           <td>Service</td>
-
           <td>
-
             <?php
-
-
             foreach ($service_info as $key => $value) { ?>
-
-
               <table class="table">
                 <tr>
                   <td>
@@ -399,9 +382,6 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
                   </td>
                 </tr>
               </table>
-
-
-
             <?php $total_service += $value['price'] * $value['qty'];
             }  ?>
 
@@ -444,12 +424,12 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
       <p class="detail_width">Dis. Ref. Name</p><span>: <?= $final_bill_info[0]['discount_ref'] ?></span> <br>
       <p class="detail_width">Status </p><span>: <?php if (round($final_bill_info[0]['total_amount']) + $final_bill_info[0]['total_vat'] - $final_bill_info[0]['total_discount'] <= $final_bill_info[0]['total_paid']) {
 
-                                                  echo "Paid";
-                                                } else {
-                                                  echo "Due";
-                                                }
+                                                    echo "Paid";
+                                                  } else {
+                                                    echo "Due";
+                                                  }
 
-                                                ?></span>
+                                                  ?></span>
     </div>
     <div class="profile_footer_right">
       <p class="detail_width">Total Amount</p><span>: <?php echo round($final_bill_info[0]['total_amount']) ?></span> <br>
@@ -459,8 +439,8 @@ $others_report = $this->session->userdata['logged_in']['others_report'];
       ?>
       <p class="detail_width">Payable Amount</p><span>: <?php echo $net_total ?></span> <br>
       <p class="detail_width">Discount Amount(-)</p><span>: <?php echo $final_bill_info[0]['total_discount'] ?></span> <br>
-       
-       
+
+
       <p class="detail_width">Amount Receive</p><span>: <?php echo $final_bill_info[0]['total_paid'] ?></span> <br>
       <p class="detail_width">Due Amount</p><span>: <?php echo $net_total - $final_bill_info[0]['total_paid'] ?></span>
 

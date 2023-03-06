@@ -73,16 +73,11 @@
 
         <tr>
           <td colspan="2" align="right">Total</td>
-          <td><input readonly style="color:white;background-color:blue;padding:0;text-align: right;" type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="total_amount" name="total_amount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><input readonly style="color:white;background-color:#3E54AC;padding:3px;text-align: center;"  type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="total_amount" name="total_amount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
           <td><input readonly style="padding:0" type="text" id="total_c_o" name="total_c_o" class="form-control col-md-12" /></td>
           <td><input readonly style="padding:0" type="text" id="sub_c_o" name="sub_c_o" class="form-control col-md-12" /></td>
           <td></td>
         </tr>
-
-
 
         <tr>
           <td colspan="2" align="right">Discount(%)</td>
@@ -109,7 +104,7 @@
 
         <tr>
           <td colspan="2" align="right">Net Total</td>
-          <td><input autocomplete="off" readonly style="color:white;background-color:green;padding:0;text-align: right;" type="text" id="net_total" name="net_total" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
+          <td><input autocomplete="off" readonly style="color:white;background-color:#539165;padding:3px;text-align: center;" type="text" id="net_total" name="net_total" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
 
           <td></td>
           <td autocomplete="off" align="right">Dis. Limit</td>
@@ -136,7 +131,7 @@
         </tr>
         <tr>
           <td colspan="2" align="right">Due</td>
-          <td><input autocomplete="off" readonly style="color:white;background-color:red;padding:0;text-align: right;" type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="due" name="due" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
+          <td><input autocomplete="off" readonly style="color:white;background-color:#DF2E38;padding:3px;text-align: center;" type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="due" name="due" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
           <td></td>
           <td></td>
           <td></td>
