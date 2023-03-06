@@ -430,7 +430,7 @@
                     <div  class="container-middle">
                       <table style=" border: 1px solid black; font-size:20px; margin-left: 46px; width: 839px; border-radius: 15px 15px 0 0 !important;padding: 3px; border-bottom: none;">
                         <tr>
-                          <td><b>Bill No: </b><?php echo $order_info[0]['test_order_id']?></td>
+                          <td><b>Bill No:</b><?php echo $order_info[0]['test_order_id']?></td>
 
                           <td><b>Date: </b><?php echo date('d.m.Y h:i a', strtotime($pdate));?></td>
 

@@ -12,7 +12,7 @@
      <?php $this->load->view('back/navbar'); ?>   
    </div> 
    <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="blue accent-3 relative nav-sticky" style="background: #3E54AC;border-top:1px solid white">
       <div class="container-fluid text-white">
         <div class="row p-t-b-10 ">
           <div class="col">
@@ -40,7 +40,6 @@
             <th>Patient ID</th>
             <th>Patient Name</th>
             <th>Order No</th>
-           
             <th>Test Title</th>
             <th>Test Group</th>
             <th>Specimen</th>

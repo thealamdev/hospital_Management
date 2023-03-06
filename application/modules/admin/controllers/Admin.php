@@ -4445,7 +4445,7 @@ class Admin extends MX_Controller
 			$sub_array[] = $row->quack_doc_name;
 			$sub_array[] = date('d-M-y', strtotime($row->c_date));
 			$sub_array[] = $row->operator_name;
-			$sub_array[] = '<a href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
+			$sub_array[] = '<a class="btn btn-primary" href="admin/opd_each_patient_pdf/' . $row->patient_id . '/' . $row->p_id . '/' . $row->is_ipd_patient . '" onclick="window.open(this.href, ' . "windowName', 'width=1000, height=700, left=24, top=24, scrollbars, resizable" . '); return false;">Print</a>';
 
 			$data[] = $sub_array;
 

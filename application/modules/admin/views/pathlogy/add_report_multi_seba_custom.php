@@ -460,7 +460,6 @@
                               <td><b>Ipd Id: </b><?php echo $cabin_ipd_info[0]['patient_info_id']?></td>
                               <td><b>Cabin No: </b><?php echo $cabin_ipd_info[0]['room_title']?></td>
                             <?php } ?>
-
                           </tr>
 
                         </table>

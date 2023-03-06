@@ -35338,3 +35338,9 @@ ul.chat-user-total li i.old-users {
     border: 1px solid black !important;
 
 }
+
+
+.header_style{
+    background: red !important;
+    border-top: 1px solid white !important;
+}
