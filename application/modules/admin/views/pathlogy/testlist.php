@@ -12,7 +12,7 @@
      <?php $this->load->view('back/navbar'); ?>   
    </div> 
    <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="accent-3 relative nav-sticky" style="background: #2B3467;border-top:1px solid #fff">
       <div class="container-fluid text-white">
         <div class="row p-t-b-10 ">
           <div class="col">
@@ -26,31 +26,27 @@
     </header>
     
     <div class="section-wrapper">
-
-
-
       <div class="card my-3 no-b">
         <div class="card-body">
-          
-         <table id="test_table" class="table table-bordered table-hover data-tables"
+         <table id="test_table" class="table table-striped table-hover data-tables"
          data-options='{ "paging": false; "searching":false}'>
-         <thead>
-          <tr>
+         <thead class="bg-info text-white">
+          
             <th>SL NO</th>
             <th>Test Title</th>    
             <th>Group Title</th>     						
             <th>Action</th>
-          </tr>
+           
         </thead>
         <tbody>
           
           <?php $i=1;
           foreach ($testlist as $key => $value) {?>
-            <tr>
+            <tr class="text-center">
               <td><?=$i?></td>
               <td><?=$value['sub_test_title']?></td>
               <td><?=$value['test_title']?></td>
-              <td><a href="admin/test_edit/<?=$value['id']?>">Edit</a></td>
+              <td><a class="btn btn-primary" href="admin/test_edit/<?=$value['id']?>">Edit</a></td>
             </tr>
             <?php $i++; }
             ?>

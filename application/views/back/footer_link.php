@@ -14,7 +14,7 @@
   $(document).ready(function() {
     $('#summernote').summernote({
       tabsize: 2,
-        height: 500,
+        height: 1000,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],

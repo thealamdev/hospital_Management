@@ -18262,8 +18262,6 @@ class Admin extends MX_Controller
 		$data['description'] = $data['pathology'][0]['mresult'];
 
 		$data['technologist_info'] = $this->admin_model->select_with_where2('*', 'specimen_id="' . $specimen_id . '"', 'add_technologist');
-
-
 		$this->load->view('pathlogy/view_report_m_seba', $data);
 	}
 

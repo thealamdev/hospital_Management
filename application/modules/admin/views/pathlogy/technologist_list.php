@@ -12,7 +12,7 @@
      <?php $this->load->view('back/navbar'); ?>   
    </div> 
    <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="accent-3 relative nav-sticky" style="background: #2B3467;border-top:1px solid #fff">
       <div class="container-fluid text-white">
         <div class="row p-t-b-10 ">
           <div class="col">
@@ -33,19 +33,16 @@
         <div class="card-body">
          <!--  <a href="admin/ipd_registration"><button class="btn btn-info btn-md mb-2">Add Patient</button></a> -->
 
-         <table id="test_table" class="table table-bordered table-hover data-tables"
+         <table id="test_table" class="table table-striped table-hover data-tables"
          data-options='{ "paging": false; "searching":false}'>
-         <thead>
-          <tr>
+         <thead class="bg-info">
             <th>SL NO</th>
             <th>Specimen</th>
             <th>Checked By</th>
             <th>Prepared By</th>
             <th>Techonologist Name</th>
-           
-
             <th>Action</th>
-          </tr>
+        
         </thead>
         <tbody>
           <?php $i=1;
