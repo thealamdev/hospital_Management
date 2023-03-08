@@ -19,6 +19,7 @@
         <th>Net Amount</th>
         <th>C/O</th>
         <th>Sub. C/O </th>
+        <th style="width:15%">Doc/Dic %</th>
 
         <!-- <th style="width:25%">Price*Qty</th> -->
         <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
@@ -48,6 +49,9 @@
             <td><?= $item['options']['quk_ref_com'] ?><span style="padding:0"></span></td>
 
             <td style=""><?= $item['options']['quk_ref_com'] ?><span style="padding:0"></span></td>
+            <td >
+                <?=(int) $item['options']['discount_percent']?>
+              </td>
 
             <!--   <td><input style="padding:0" type="number" class="form-control" id="test_cart_qty_<?= $item['rowid']; ?>" value="<?= $item['qty']; ?>" onchange="update_price_qty('<?= $item['rowid']; ?>')"></td> -->
 
@@ -100,7 +104,6 @@
           <td></td>
           <td></td>
         </tr>
-
 
         <tr>
           <td colspan="2" align="right">Net Total</td>

@@ -3,7 +3,6 @@
 class Admin extends MX_Controller
 {
 
-
 	function __construct()
 	{
 		// $this->session->set_userdata('logged_in');
@@ -2624,7 +2623,7 @@ class Admin extends MX_Controller
 			"name"  => $_POST["test_name"],
 			"qty"  => 1,
 			"price"  => $_POST["test_price"],
-			"options" => array("quk_ref_com" => $_POST["quk_ref_com"], "type" => $_POST["type"], "discount_amount" => $discount_amount, "discount_percent" => $discount_percent)
+			"options" => array("quk_ref_com" => $_POST["quk_ref_com"], "type" => $_POST["type"], "discount_amount" => $discount_amount, "discount_percent" => $_POST['doc_com_per'])
 		);
 
 		$this->cart->insert($data);
@@ -3821,7 +3820,7 @@ class Admin extends MX_Controller
 
 
 		$data = array(
-			'total_commission' => $total_com,
+			'total_commission' => $_POST['sub_c_o'] ?? 0,
 			'total_test_amount' => $total_amount,
 			'total_test_discount' => $discount,
 			'total_gross_com' => $_POST['total_c_o'],
@@ -3872,6 +3871,15 @@ class Admin extends MX_Controller
 
 			if ($item['options']['type'] != 2) {
 				$amount1 = $item['options']['quk_ref_com'] - $com_reduction_each;
+				$sub_amount_per = 0;
+
+                if ( $_POST['discount_store_per'] < $item['options']['discount_percent'] ) {
+                    $sub_amount_per = $item['options']['quk_ref_com'] / 2;
+                } else if ( $_POST['discount_store_per'] > $item['options']['discount_percent'] ) {
+                    $sub_amount_per = 0;
+                } else {
+                    $sub_amount_per = $item['options']['quk_ref_com'];
+                }
 				$val = array(
 					'com_id' => $com_id,
 					'patient_id' => $patient_id,
@@ -3880,9 +3888,9 @@ class Admin extends MX_Controller
 					'doc_title' => $doc_title,
 					'service_type' => 1,
 					'service_id' => $item['id'],
-					'amount' => $amount1,
+					'amount' => $amount1, // $sub_amount_per
 					'gross_amount' => $item['options']['quk_ref_com'],
-					'sub_amount' => $com_reduction_each,
+					'sub_amount' => $sub_amount_per,
 					'created_at' => date('Y-m-d H:i:s')
 
 				);

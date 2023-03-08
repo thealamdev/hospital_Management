@@ -63,7 +63,6 @@
                           if($com_type==1)
                           {
 
-
                             $quk_ref_com=($price*$doc_comission)/100;  
 
                           }
@@ -188,7 +187,7 @@
                     ?>
                     <td><input type="" class="form-control" readonly="" value="<?php echo $quk_ref_com?>" name="" id="quack_<?=$value['id']?>"></td>
                     <td><?=$value['price']?></td>
-                    <td><button tabindex="13" type="button" id="<?=$value['id']?>" data-sub_test_id="<?=$value['id']?>" data-test_id="<?=$value['mtest_id']?>" data-type="<?=$value['type']?>" data-test="<?=$value['sub_test_title']?>" data-price="<?=$value['price']?>"
+                    <td><button data-doc-com-per="<?=$doc_comission ?? $quk_ref_com?>"  tabindex="13" type="button" id="<?=$value['id']?>" data-sub_test_id="<?=$value['id']?>" data-test_id="<?=$value['mtest_id']?>" data-type="<?=$value['type']?>" data-test="<?=$value['sub_test_title']?>" data-price="<?=$value['price']?>"
                       data-quk_ref_com="<?=$value['quk_ref_com']?>" class="btn btn-primary btn-sm add_this_test"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Add</button></td>
                     </tr>
 
