@@ -145,7 +145,7 @@
                               <td align="center"><?=$value['price']?></td>
                               <td align="right"><?=number_format($value['gross_amount'],2,'.','')?> &#x9f3</td>
                               <td align="center">(<?=$value['total_test_discount'].'/'.count($total_com_info)?>) = <?=number_format($value['total_test_discount']/count($total_com_info),2,'.','')?></td>
-                              <td align="right"><?=number_format($value['amount'],2,'.','')?> &#x9f3</td>
+                              <td align="right"><?=number_format($value['sub_amount'],2,'.','')?> &#x9f3</td>
 
                             </tr>
                             <?php  $i++; 

@@ -3866,7 +3866,6 @@ class Admin extends MX_Controller
 		}
 
 
-
 		foreach ($cart as $item) {
 
 			if ($item['options']['type'] != 2) {
