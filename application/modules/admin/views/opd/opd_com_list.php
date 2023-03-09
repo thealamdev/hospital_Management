@@ -11,7 +11,7 @@
    <?php $this->load->view('back/navbar'); ?>   
  </div>
  <div class="page has-sidebar-left height-full">
-   <header class="blue accent-3 relative nav-sticky">
+   <header class="accent-3 relative nav-sticky" style="background: #2B3467;border-top:1px solid #fff">
     <div class="container-fluid text-white">
      <div class="row p-t-b-10 ">
       <div class="col">
@@ -27,7 +27,7 @@
   <?php if($flag !="date_wise"){ ?>
    <div class="card my-3 no-b">
     <div class="card-body">
-     <form method="POST" action="admin/opd_com_date_wise" target="_blank">
+     <form method="POST" action="admin/opd_com_date_wise">
       <div class="form-row">
        <div class="form-group col-md-3">
         <label for="inputEmail4" class="col-form-label">Start Date</label>
@@ -72,8 +72,8 @@
 <div class="form-group col-md-3">
   <label for="inputEmail4" class="col-form-label"></label>
   <label for="inputEmail4" class="col-form-label"></label>
-  <div class="input-group ml-3">
-   <button type="submit" class="btn btn-success">Submit</button>
+  <div class="input-group ml-3 mt-2">
+   <button type="submit" class="btn btn-primary">Submit</button>
  </div>
 </div>
 </div>
@@ -86,9 +86,8 @@
    <div class="card my-3 no-b">
     <div class="card-body">
     <?php } ?>    
-    <table id="test_table" class="table table-bordered table-hover test_table_report">
-      <thead>
-       <tr>
+    <table id="test_table" class="table table-striped table-hover">
+      <thead class="bg-primary text-white">
         <th>SL NO</th>
         <th>Doctor Name</th>
         <th>Patient Id</th>
@@ -105,7 +104,7 @@
         <!-- <th style="width:10%;">Action</th> -->
         <th style="width:10%;">Details</th>
         <th>Date</th>
-      </tr>
+
     </thead>
     <tbody>
      <?php

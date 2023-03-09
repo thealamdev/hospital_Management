@@ -11,9 +11,9 @@
    <?php $this->load->view( 'back/navbar' );?>
  </div>
  <div class="page has-sidebar-left height-full">
-   <header class="blue accent-3 relative nav-sticky">
+   <header class="accent-3 relative nav-sticky"style="background: #2B3467;border-top:1px solid #fff">
     <div class="container-fluid text-white">
-     <div class="row p-t-b-2">
+     <div class="row p-t-b-10">
       <div class="col">
        <h4>
         <i class="icon-box"></i>
