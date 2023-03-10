@@ -12,7 +12,7 @@
     <table class="table table-striped" id="test_cart_table">
       <thead class="bg-dark text-white">
         <th>SL</th>
-        <th> Test</th>
+        <th>Test</th>
         <th>Price</th>
         <th>Vat</th>
         <th>Disount</th>

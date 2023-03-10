@@ -23,6 +23,7 @@
           </div>
         </div>
       </div>
+      
     </header>
     <?php if($this->session->userdata('scc_alt')){ ?>
       <div class="alert alert-success alert-dismissable">

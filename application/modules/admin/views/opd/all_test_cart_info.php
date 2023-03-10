@@ -23,6 +23,7 @@
                   <th>Price</th>
                   <th>Action</th>
                 
+                  
               </thead>
               <tbody class="text-center">
                 <?php  $i=1;
