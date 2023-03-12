@@ -84,13 +84,15 @@
 
        <!-- Manage Test & Service Starts -->
 
-       <?php if ($this->auth->can('test_group-admin') || $this->auth->can('service_list-admin') || $this->auth->can('specimen_list-admin') || $this->auth->can('add_specimen-admin') || $this->auth->can('add_user-admin') || $this->auth->can('user_list-admin') || $this->auth->can('add_user-admin') || $this->auth->can('marketing_officer_list-admin')) { ?>
+       <?php
+       $test_ser = ['test_group','additional_test_list','service_list','specimen_list','edit_hospital_form','marketing_officer_list'];
+       if ($this->auth->can('test_group-admin') || $this->auth->can('service_list-admin') || $this->auth->can('specimen_list-admin') || $this->auth->can('add_specimen-admin') || $this->auth->can('add_user-admin') || $this->auth->can('user_list-admin') || $this->auth->can('add_user-admin') || $this->auth->can('marketing_officer_list-admin')) { ?>
 
-         <li class="treeview <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+         <li class="treeview <?php if (in_array($active,$test_ser)) {
                                 echo 'active';
                               } ?>">
            <a href="javascript:void(0)"><i class="fa fa-cogs icon-sidebar"></i> <span>Test & Service Management</span><i class="icon icon-angle-left s-18 pull-right"></i></a>
-           <ul class="treeview-menu <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+           <ul class="treeview-menu <?php if (in_array($active,$test_ser)) {
                                       echo 'menu-open display_block';
                                     } ?>">
 
@@ -150,11 +152,11 @@
        <?php if ($this->auth->can('role_list-admin') || $this->auth->can('add_user-admin') || $this->auth->can('user_list-admin')) { ?>
 
 
-         <li class="treeview <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+         <li class="treeview <?php if ( $active == 'add_user' || $active == 'role_list' || $active == 'user_list') {
                                 echo 'active';
                               } ?>">
            <a href="#"><i class="fa fa-users icon-sidebar"></i> <span>User & Role Management</span><i class="icon icon-angle-left s-18 pull-right"></i></a>
-           <ul class="treeview-menu <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+           <ul class="treeview-menu <?php if ( $active == 'add_user' || $active == 'role_list' || $active == 'user_list') {
                                       echo 'menu-open display_block';
                                     } ?>">
              <?php if (($this->auth->can('role_list-admin'))) { ?>
@@ -180,11 +182,11 @@
 
        <?php if ($this->auth->can('doc_schedule_list-admin') || $this->auth->can('appointment_list-admin')) { ?>
 
-         <li class="treeview <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+         <li class="treeview <?php if ($active == 'add_doc_schedule' || $active == 'doc_schedule_list' || $active == 'add_appointment' || $active == 'appointment_list') {
                                 echo 'active';
                               } ?>">
            <a href="javascript:void(0)"><i class="fa fa-address-book icon-sidebar"></i> <span>Appointment Management</span><i class="icon icon-angle-left s-18 pull-right"></i></a>
-           <ul class="treeview-menu <?php if ($active == 'test_group' || $active == 'add_user' || $active == 'add_hospital' || $active == 'add_hospital_form') {
+           <ul class="treeview-menu <?php if ($active == 'add_doc_schedule' || $active == 'doc_schedule_list' || $active == 'add_appointment' || $active == 'appointment_list') {
                                       echo 'menu-open display_block';
                                     } ?>">
 

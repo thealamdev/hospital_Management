@@ -383,6 +383,11 @@
     width:700px !important;
     margin: 0 auto;
   }
+
+  table{
+    border: 1px solid black;
+    width: 100%;
+  }
 </style>
 <a href="<?= base_url(); ?>admin/search_pathology_custom">Go to search</a>
 

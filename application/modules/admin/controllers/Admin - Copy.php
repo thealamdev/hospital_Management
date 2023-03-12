@@ -15287,6 +15287,11 @@ public function add_supplier($value='')
 	}
 
 
+	public function machineIndex(){
+		$this->load->view('pathology/machine');
+	}
+
+
 	// Manage Appoinment Module Ends
 
 
