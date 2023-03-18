@@ -284,41 +284,17 @@ class Admin extends MX_Controller
 
 			$val = array(
 				'specimen' => $this->input->post('specimen'),
-
 				'created_at' => date('Y-m-d H:i:s')
 			);
 
 			$specimen_id = $this->admin_model->insert_ret('add_specimen', $val);
 
-			$technologist_data = array(
-				'specimen_id' => $specimen_id,
-				'checked_by_name' => $this->input->post('checked_by'),
-				'checked_by_designation' => $this->input->post('checked_by_designation'),
-				'checked_by_address' => $this->input->post('checked_by_address'),
-				'checked_add_1' => $this->input->post('checked_add_1'),
-				'checked_add_2' => $this->input->post('checked_add_2'),
-
-				'prepared_by_name' => $this->input->post('prepared_by'),
-				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
-				'prepared_by_address' => $this->input->post('prepared_by_address'),
-				'prepared_add_1' => $this->input->post('prepared_add_1'),
-				'prepared_add_2' => $this->input->post('prepared_add_2'),
-
-				'technologist_name' => $this->input->post('technologist_name'),
-				'technologist_designation' => $this->input->post('technologist_designation'),
-				'technologist_address' => $this->input->post('technologist_address'),
-				'technologist_add_1' => $this->input->post('technologist_add_1'),
-				'technologist_add_2' => $this->input->post('technologist_add_2'),
-				'created_at' => date('Y-m-d H:i:s')
-
-			);
-
-			$this->admin_model->insert('add_technologist', $technologist_data);
-
-
 			redirect("admin/specimen_list", 'refresh');
 		}
 	}
+
+
+
 
 	public function specimen_list($value = '')
 	{
@@ -355,6 +331,113 @@ class Admin extends MX_Controller
 		$data['specimen_id'] = $id;
 
 		$this->load->view('test_group/edit_specimen', $data);
+	}
+
+	public function edit_technologiest($id = '')
+	{
+		$data['active'] = 'edit_technologiest';
+		$data['page_title'] = 'Edit technologiest';
+		$data['admin_type'] = $this->session->userdata['logged_in']['role'];
+		$data['specimen_list'] = $this->admin_model->select_with_where2('*', 'status=1 and id="' . $id . '"', 'add_specimen');
+		// $data['specimen_list'] = $this->admin_model->select_with_where2('*', 'status=1 and id="' . $id . '"', 'add_specimen');
+		$this->db->select('*');
+		$this->db->from('add_specimen');
+		$query = $this->db->get();
+		$data['speciman'] = $query->result_array();
+		$data['technologist_list'] = $this->admin_model->select_with_where2('*', 'id="' . $id . '"', 'add_technologist');
+
+		// $data['specimen_id'] = $id;
+
+		$this->load->view('pathlogy/edit_technologiest', $data);
+	}
+
+	 
+	 
+
+	public function update_tecnologiest($id = '')
+	{
+		// $val = array('specimen' => $this->input->post('specimen'));
+
+		// $this->admin_model->update_function2('id="' . $id . '"', 'add_specimen', $val);
+		$id = $this->input->post('id');
+		if ($this->admin_model->check_row('*', 'id="' . $id . '"', 'add_technologist')) {
+			$technologist_data = array(
+
+				'checked_by_name' => $this->input->post('checked_by'),
+				'checked_by_designation' => $this->input->post('checked_by_designation'),
+				'checked_by_address' => $this->input->post('checked_by_address'),
+				'checked_add_1' => $this->input->post('checked_add_1'),
+				'checked_add_2' => $this->input->post('checked_add_2'),
+
+				'prepared_by_name' => $this->input->post('prepared_by'),
+				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
+				'prepared_by_address' => $this->input->post('prepared_by_address'),
+				'prepared_add_1' => $this->input->post('prepared_add_1'),
+				'prepared_add_2' => $this->input->post('prepared_add_2'),
+
+				'technologist_name' => $this->input->post('technologist_name'),
+				'technologist_designation' => $this->input->post('technologist_designation'),
+				'technologist_address' => $this->input->post('technologist_address'),
+				'technologist_add_1' => $this->input->post('technologist_add_1'),
+				'technologist_add_2' => $this->input->post('technologist_add_2'),
+
+			);
+
+			$this->load->admin_model->update_function2('id="' . $id . '"', 'add_technologist', $technologist_data);
+		} else {
+			$technologist_data = array(
+
+				'checked_by_name' => $this->input->post('checked_by'),
+				'checked_by_designation' => $this->input->post('checked_by_designation'),
+				'checked_by_address' => $this->input->post('checked_by_address'),
+				'checked_add_1' => $this->input->post('checked_add_1'),
+				'checked_add_2' => $this->input->post('checked_add_2'),
+
+				'prepared_by_name' => $this->input->post('prepared_by'),
+				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
+				'prepared_by_address' => $this->input->post('prepared_by_address'),
+				'prepared_add_1' => $this->input->post('prepared_add_1'),
+				'prepared_add_2' => $this->input->post('prepared_add_2'),
+
+				'technologist_name' => $this->input->post('technologist_name'),
+				'technologist_designation' => $this->input->post('technologist_designation'),
+				'technologist_address' => $this->input->post('technologist_address'),
+				'technologist_add_1' => $this->input->post('technologist_add_1'),
+				'technologist_add_2' => $this->input->post('technologist_add_2'),
+				'specimen_id' => $id
+
+			);
+
+			$this->load->admin_model->insert('add_technologist', $technologist_data);
+		}
+
+		// $technologist_data = array(
+
+		// 	'checked_by_name' => $this->input->post('checked_by'),
+		// 	'checked_by_designation' => $this->input->post('checked_by_designation'),
+		// 	'checked_by_address' => $this->input->post('checked_by_address'),
+		// 	'checked_add_1' => $this->input->post('checked_add_1'),
+		// 	'checked_add_2' => $this->input->post('checked_add_2'),
+
+		// 	'prepared_by_name' => $this->input->post('prepared_by'),
+		// 	'prepared_by_designation' => $this->input->post('prepared_by_designation'),
+		// 	'prepared_by_address' => $this->input->post('prepared_by_address'),
+		// 	'prepared_add_1' => $this->input->post('prepared_add_1'),
+		// 	'prepared_add_2' => $this->input->post('prepared_add_2'),
+
+		// 	'technologist_name' => $this->input->post('technologist_name'),
+		// 	'technologist_designation' => $this->input->post('technologist_designation'),
+		// 	'technologist_address' => $this->input->post('technologist_address'),
+		// 	'technologist_add_1' => $this->input->post('technologist_add_1'),
+		// 	'technologist_add_2' => $this->input->post('technologist_add_2'),
+		// 	'specimen_id' => $id
+
+		// );
+
+		// $this->load->admin_model->insert('add_technologist', $technologist_data);
+
+
+		redirect("admin/technologist_list/" . $id, 'refresh');
 	}
 
 
@@ -626,15 +709,15 @@ class Admin extends MX_Controller
 		$this->db->select('hospital_logo,dashboard_img');
 		$this->db->from('hospital');
 		$query = $this->db->get();
-		
-		if($query->num_rows() > 0) {
+
+		if ($query->num_rows() > 0) {
 			// do something with the results
-			foreach($query->result() as $row) {
-				 $row->hospital_logo;
-				 $row->dashboard_img;
+			foreach ($query->result() as $row) {
+				$row->hospital_logo;
+				$row->dashboard_img;
 			}
 		}
-		
+
 		$hospital_logo = $row->hospital_logo;
 		$dashboard_img = $row->dashboard_img;
 
@@ -3482,7 +3565,7 @@ class Admin extends MX_Controller
 		$Month = $this->input->post('Month');
 		$Year = $this->input->post('Year');
 
-		
+
 		if (($Day != 0) and ($Month != 0) and ($Year != 0)) {
 			$age = $Day . " D " . $Month . " M " . $Year . " Y";
 		} elseif (($Day == 0) and ($Month != 0) and ($Year != 0)) {
@@ -3872,13 +3955,13 @@ class Admin extends MX_Controller
 				$amount1 = $item['options']['quk_ref_com'] - $com_reduction_each;
 				$sub_amount_per = 0;
 
-                if ( $_POST['discount_store_per'] < $item['options']['discount_percent'] ) {
-                    $sub_amount_per = $item['options']['quk_ref_com'] / 2;
-                } else if ( $_POST['discount_store_per'] > $item['options']['discount_percent'] ) {
-                    $sub_amount_per = 0;
-                } else {
-                    $sub_amount_per = $item['options']['quk_ref_com'];
-                }
+				if ($_POST['discount_store_per'] < $item['options']['discount_percent']) {
+					$sub_amount_per = $item['options']['quk_ref_com'] / 2;
+				} else if ($_POST['discount_store_per'] > $item['options']['discount_percent']) {
+					$sub_amount_per = 0;
+				} else {
+					$sub_amount_per = $item['options']['quk_ref_com'];
+				}
 				$val = array(
 					'com_id' => $com_id,
 					'patient_id' => $patient_id,
@@ -17854,6 +17937,23 @@ class Admin extends MX_Controller
 		}
 
 
+		$this->db->select('*');
+		$this->db->from('machine');
+		$query = $this->db->get();
+		$data['machines'] = $query->result_array();
+
+		$this->db->select('*');
+		$this->db->from('add_technologist');
+		$this->db->where('specimen_id=' . $specimen_id);
+		$query = $this->db->get();
+		$data['tecnology_info'] = $query->result_array();
+
+		// Display the result as an array
+		// print_r($data['machines']);
+
+		// die();
+
+
 
 		$this->load->view('pathlogy/add_report_multi_seba', $data);
 	}
@@ -18130,7 +18230,7 @@ class Admin extends MX_Controller
 	public function report_publish_multi($specimen_id = '', $payment_status = '', $prev_module = '')
 	{
 
-
+		$checked_by = $this->input->post('checked_by');
 		$data['patient_info_id'] = $this->input->post('patient_info_id');
 		$data['itestid'] = $this->input->post('itestid');
 		$data['order_id'] = $this->input->post('order_id');
@@ -18146,7 +18246,13 @@ class Admin extends MX_Controller
 		// "<pre>";print_r($pathology);die();
 
 		$data['mresult'] = $this->input->post('mresult');
-		// "<pre>";print_r($data['mresult']);die();
+		$data['machine_add'] = $this->input->post('select_machine');
+
+
+		// die();
+		// "<pre>";print_r($data['mresult'].$this->input->post('select_machine'));
+		// // print_r($this->input->post('select_machine'));
+		// die();
 
 		if (count($pathology) > 0) {
 			$m_path_id = $pathology[0]['multi_path_id'];
@@ -18163,11 +18269,11 @@ class Admin extends MX_Controller
 		$report_lock = $this->admin_model->select_all('report_lock');
 
 		if ($payment_status == "paid") {
-			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id, 'refresh');
+			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id . '/' . $checked_by, 'refresh');
 		} elseif ($report_lock[0]['flag'] == 0 && $patient_id[0]['is_ipd_patient'] == 0) {
-			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id, 'refresh');
+			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id . '/' . $checked_by, 'refresh');
 		} elseif ($report_lock[0]['flag_ipd'] == 0 && $patient_id[0]['is_ipd_patient'] == 1) {
-			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id, 'refresh');
+			redirect('admin/view_report_m/' . $m_path_id . '/' . $specimen_id . '/' . $checked_by, 'refresh');
 		}
 
 		if ($prev_module == 'custom') {
@@ -18249,7 +18355,6 @@ class Admin extends MX_Controller
 	public function view_report_m_custom($mid, $specimen_id)
 	{
 		$data['pathology'] = $this->admin_model->select_with_where2('*', 'multi_path_id="' . $mid . '"', 'multi_result_combine');
-
 		// "<pre>";print_r($data['pathology']);die();
 		$data['description'] = $data['pathology'][0]['mresult_combine'];
 
@@ -18260,15 +18365,30 @@ class Admin extends MX_Controller
 	}
 
 
-
-	public function view_report_m($mid, $specimen_id)
+	// new comment
+	public function view_report_m($mid, $specimen_id, $checked_by)
 	{
+
+
+		$this->db->select('*');
+		$this->db->from('machine');
+		$query = $this->db->get();
+		$data['machines'] = $query->result();
 		$data['pathology'] = $this->admin_model->select_with_where2('*', 'multi_path_id="' . $mid . '"', 'multi_result');
+
+		// $this->db->select('*');
+		// $this->db->from('add_technologist');
+		// $this->db->where('id=' . $checked_by );
+		// $query = $this->db->get();
+		// $data['technologist_info'] = $query->result();
 
 		// "<pre>";print_r($data['pathology']);die();
 		$data['description'] = $data['pathology'][0]['mresult'];
+		$data['machine_add'] = $data['pathology'][0]['machine_add'];
 
-		$data['technologist_info'] = $this->admin_model->select_with_where2('*', 'specimen_id="' . $specimen_id . '"', 'add_technologist');
+		$data['technologist_info'] = $this->admin_model->select_with_where2('*', 'id="' . $checked_by . '"', 'add_technologist');
+		// print_r($data);
+		// die();
 		$this->load->view('pathlogy/view_report_m_seba', $data);
 	}
 
@@ -18338,14 +18458,126 @@ class Admin extends MX_Controller
 		redirect('admin/testlist', 'refresh');
 	}
 
+	public function add_technologiest($value = '')
+	{
+		$data['active'] = 'Test List';
+		$data['page_title'] = 'Technologist List';
+		$data['admin_type'] = $this->session->userdata['logged_in']['role'];
+
+		// $data['technologist_list'] = $this->admin_model->select_join_where('*,s.id', 'add_specimen s', 'add_technologist t', 's.id=t.specimen_id', 's.status=1');
+		// $query = $this->db->get('add_specimen');
+		// $data['speciman'] = $this->db->get('add_specimen');
+		$this->db->select('*');
+		$this->db->from('add_specimen');
+		$query = $this->db->get();
+		$data['speciman'] = $query->result_array();
+		$this->load->view('pathlogy/add_technologiest', $data);
+	}
+
+	public function insert_tecnologiest($value = '')
+	{
+		$data['active'] = 'add_specimen';
+		$data['page_title'] = 'Add Technologiest';
+		$data['admin_type'] = $this->session->userdata['logged_in']['role'];
+
+
+		$this->form_validation->set_error_delimiters('<div>', '</div>');
+		//Validating Name Field
+		$this->form_validation->set_rules('specimen_id', 'Specimen Id', 'required');
+
+		if ($_FILES['technologist_designation']['name']) {
+			$name_generator = $this->name_generator($_FILES['technologist_designation']['name'], uniqid());
+			$i_ext = explode('.', $_FILES['technologist_designation']['name']);
+			$target_path = $name_generator . '.' . end($i_ext);;
+			$size = getimagesize($_FILES['technologist_designation']['tmp_name']);
+
+			if (move_uploaded_file($_FILES['technologist_designation']['tmp_name'], 'uploads/hospital_logo/' . $target_path)) {
+				$hospital_logo = $target_path;
+			}
+
+			// $data_logo['hospital_logo'] = $hospital_logo;
+			// $this->admin_model->update_function('hospital_id', $id, 'hospital', $data_logo);
+		}
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('pathlogy/add_technologiest', $data);
+		} else {
+
+
+			$technologist_data = array(
+				'specimen_id' => $this->input->post('specimen_id'),
+				'checked_by_name' => $this->input->post('checked_by'),
+				'checked_by_designation' => $this->input->post('checked_by_designation'),
+				'checked_by_address' => $this->input->post('checked_by_address'),
+				'checked_add_1' => $this->input->post('checked_add_1'),
+				'checked_add_2' => $this->input->post('checked_add_2'),
+
+				'prepared_by_name' => $this->input->post('prepared_by'),
+				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
+				'prepared_by_address' => $this->input->post('prepared_by_address'),
+				'prepared_add_1' => $this->input->post('prepared_add_1'),
+				'prepared_add_2' => $this->input->post('prepared_add_2'),
+
+				'technologist_name' => $this->input->post('technologist_name'),
+				// 'technologist_designation' => $this->input->post('technologist_designation'),
+				'technologist_designation' => $target_path,
+				'technologist_address' => $this->input->post('technologist_address'),
+				'technologist_add_1' => $this->input->post('technologist_add_1'),
+				'technologist_add_2' => $this->input->post('technologist_add_2'),
+				'created_at' => date('Y-m-d H:i:s')
+
+			);
+
+
+
+
+
+			// print_r($_FILES['technologist_designation']['name']);
+			// die();
+
+			$this->admin_model->insert('add_technologist', $technologist_data);
+
+
+			redirect("admin/technologist_list", 'refresh');
+		}
+	}
+
+
 	public function technologist_list($value = '')
 	{
 		$data['active'] = 'Test List';
 		$data['page_title'] = 'Technologist List';
 		$data['admin_type'] = $this->session->userdata['logged_in']['role'];
 
-		$data['technologist_list'] = $this->admin_model->select_join_where('*,s.id', 'add_specimen s', 'add_technologist t', 's.id=t.specimen_id', 's.status=1');
+		// $data['technologist_list'] = $this->admin_model->select_join_where('*,s.id', 'add_specimen s', 'add_technologist t', 's.id=t.specimen_id', 's.status=1');
 
+		// $data['technologist_list'] = $this->admin_model->select_join_where('*,t.specimen_id', 'add_technologist t', 'add_specimen s', 't.specimen_id=s.id');
+
+		 
+		
+		$this->db->select('*');
+		$this->db->from('add_technologist');
+		$data['technologist_list'] = $this->db->get()->result_array();
+
+		$this->db->select('*');
+		$this->db->from('add_specimen');
+		$data['specimen'] = $this->db->get()->result_array();
+		//  $data['technologist_list']->result();
+
+		// $data['technologist_list'] = $this->add_technologist
+		// ->select('*')
+		// ->join('add_specimen', 'add_specimen.add_technologist_id = add_technologist.id', 'left')
+		// ->get()
+		// ->result();
+
+		// $this->db->select('*');
+		// $this->db->from('add_technologist');
+		// $this->db->join('add_specimen', 'id = specimen_id');
+		// $query = $this->db->get();
+		// $data['technologist_list'] = $query->result_array();
+
+		// $query = $this->db->get('add_specimen');
+		$data['speciman'] = $this->db->get('add_specimen');
 
 		$this->load->view('pathlogy/technologist_list', $data);
 	}
@@ -18360,7 +18592,11 @@ class Admin extends MX_Controller
 
 		$data['technologist_list'] = $this->admin_model->select_with_where2('*', 'id="' . $id . '"', 'add_technologist');
 
-		$data['specimen_list'] = $this->admin_model->select_with_where2('*', 'status=1', 'add_specimen');
+		// $data['specimen_list'] = $this->admin_model->select_with_where2('*', 'status=1', 'add_specimen');
+		$this->db->select('*');
+		$this->db->from('add_specimen');
+		$query = $this->db->get();
+		$data['speciman'] = $query->result_array();
 
 		// "<pre>";print_r($data['specimen_list']);die();
 

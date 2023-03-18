@@ -32,7 +32,8 @@ class Admin_model extends CI_Model
      return $query->result_array();
  }
 
-
+ 
+ 
  public function select_all_test($table_name)
  {
     $this->db->select('*');

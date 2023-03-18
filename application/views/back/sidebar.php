@@ -106,6 +106,8 @@
                </li>
              <?php } ?>
 
+             
+
              <?php if (($this->auth->can('service_list-admin'))) { ?>
                <li><a href="admin/service_list"><i class="fa fa-list-alt icon-sidebar"></i> <span>Service Lists</span></a>
                </li>
@@ -843,6 +845,11 @@
 
              <?php if (($this->auth->can('technologist_list-admin'))) { ?>
                <li><a href="admin/technologist_list"><i class="fa fa-universal-access"></i> <span>Technologist List</span></a>
+               </li>
+             <?php } ?>
+
+             <?php if (($this->auth->can('technologist_list-admin'))) { ?>
+               <li><a href="machine"><i class="fa fa-universal-access"></i> <span>Machine Store</span></a>
                </li>
              <?php } ?>
 

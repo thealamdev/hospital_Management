@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="back_assets/css/jasny-bootstrap.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> 
-    <script src="back_assets/js/ckeditor.js"></script>
+    <!-- <script src="back_assets/js/ckeditor.js"></script> -->
     <link rel="stylesheet" href="back_assets/css/alertify.min.css">
 
 

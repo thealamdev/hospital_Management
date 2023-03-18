@@ -1,5 +1,5 @@
 <style>
-  .container-middle {
+  /* .container-middle {
     height: 932px;
     width: 930px !important;
     margin: 0 auto;
@@ -379,47 +379,190 @@
     height: 10px !important;
   }
 
-  .container{
-    width:700px !important;
+  .container {
+    width: 700px !important;
     margin: 0 auto;
+  } */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    margin: 0;
+    padding: 0;
   }
 
-  table{
-    border: 1px solid black;
+  /* table {
+    margin-top: 10px;
+    padding: 10px;
+    border-collapse: collapse;
     width: 100%;
+    font-family: Arial, sans-serif;
+  } */
+
+  /* th {
+    background-color: gray;
+    color: white;
+  } */
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  thead {
+    text-align: center;
+    border: 1px solid gray;
+  }
+
+  .table_pdf_wrapper {
+    width: 650px !important;
+    margin: 0 auto !important;
+  }
+
+  .details_table_wrapper {
+    width: 650px !important;
+    border-radius: 5px;
+    border: 1px solid #222;
+    padding: 10px;
+  }
+
+  .details_main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .details_left {
+    width: 50%;
+  }
+
+
+  .details_table {
+    border: 1px solid #222;
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  .details_width {
+    width: 100px;
+    display: inline-block;
+  }
+
+  .machine_box_name {
+    font-size: 17px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+
+  .machine_name {
+    display: none;
+  }
+
+  .signature_wrapper {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    
+
+  }
+
+  .signature_wrapper p {
+    font-size: 14px;
+    font-weight: 400;
+
+  }
+
+  .signature_item h3{
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+     
+  }
+
+  .signature_item p{
+    padding: 2px;
+    color:black;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: sans-serif;
   }
 </style>
 <a href="<?= base_url(); ?>admin/search_pathology_custom">Go to search</a>
 
-<div align="center"><button id="btn_print" onclick="print_page('summernote')" style="width: 80px;height: 50px;background-color: #759ddd;">Print</button></div>
+<div align="center"><button id="btn_print" onclick="print_page('editor')" style="width: 80px;height: 40px;background-color: #00235B;margin-bottom:10px;color:#f2f2f2;border:none;border-radius:5px">Print</button></div>
 
 
 
- 
-<div id="summernote">
-<div class="container">
-  <div class="card">
-    <div class="card-body">
+<div id="editor">
+  <div class="table_pdf_wrapper">
+    <h5 class="machine_name">
       <?php
 
-      print_r($description);
-      // var_dump($data)
+      print_r($machine_add);
+
       ?>
-    </div>
+    </h5>
+    <?php
+
+    print_r($description);
+
+    ?>
+
   </div>
-</div>
+
+
+
+
   <footer style="position: fixed;bottom: 0;width: 100%;">
 
     <?php if ($technologist_info != null) { ?>
+      <div class="signature_wrapper">
+        <div class="signature_item">
+          <h3 style="margin-bottom: 10px;">Checked By</h3>
+
+          <p style="text-align: left;"><?= $technologist_info[0]['checked_by_name'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['checked_by_designation'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['checked_by_address'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['checked_add_1'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['checked_add_2'] ?></p>
+        </div>
+
+        <div class="signature_item">
+          <h3 style="margin-bottom: 10px;">Prepared By</h3>
+
+          <p style="text-align: left;"><?= $technologist_info[0]['prepared_by_name'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['prepared_by_designation'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['prepared_by_address'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['prepared_add_1'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['prepared_add_2'] ?></p>
+        </div>
+
+        <div class="signature_item">
+          <h3 style="margin-bottom: 10px;">Reported by Electronic Signature</h3>
+    
+          <p><img width="40px" src="<?php echo base_url('uploads/hospital_logo/' . $technologist_info[0]['technologist_designation']); ?>" alt="Image description"></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['technologist_name'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['technologist_address'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['technologist_add_1'] ?></p>
+          <p style="text-align: left;"><?= $technologist_info[0]['technologist_add_2'] ?></p>
+        </div>
+      </div>
+    <?php } ?>
+
+    <!-- <?php if ($technologist_info != null) { ?>
       <table style="margin:0 auto;
-    width: 90%!important;
-    margin-top: 5px;
-    /*border: 2px solid #111111;*/
-    border-radius: 8px;
-    font-size: 14px !important; 
-    width: 840px !important;">
+          width: 100%!important;
+          margin-top: 5px;
+          border-radius: 8px;
+          font-size: 14px !important; 
+          width: 700px !important;">
         <tr>
-          <th style="text-align: left;text-decoration: underline;">Checked By:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th style="text-align: left;">Checked By: </th>
           <th style="text-align: left;text-decoration: underline;">Prepared By:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
           <th style="text-align: left;text-decoration: underline;">Finalized By:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
@@ -436,6 +579,10 @@
           <td style="text-align: left;"><b><?= $technologist_info[0]['checked_by_designation'] ?></b></td>
           <td style="text-align: left;"><b><?= $technologist_info[0]['prepared_by_designation'] ?></b></td>
           <td style="text-align: left;"><b><?= $technologist_info[0]['technologist_designation'] ?></b></td>
+          <td><img width="40px" src="<?php echo base_url('uploads/hospital_logo/' . $technologist_info[0]['technologist_designation']); ?>" alt="Image description"></td>
+
+
+
 
         </tr>
         <tr>
@@ -466,11 +613,11 @@
 
       </table>
 
-    <?php } ?>
+    <?php } ?> -->
 
-    <p style="font-size: 12px;text-align: center;font-weight: bold">Developed By Rcreation (01813316786/01722964303). Email : info@rcreation-bd.com . Web : www.rcreation-bd.com</p>
+    <!-- <p style="font-size: 12px;text-align: center;font-weight: bold">Developed By Rcreation (01813316786/01722964303). Email : info@rcreation-bd.com . Web : www.rcreation-bd.com</p> -->
 
-    <p style="font-size: 12px;text-align: center;font-weight: bold"><?php echo "Print Date: " . date('d-m-Y h:i:s a'); ?></p>
+    <!-- <p style="font-size: 12px;text-align: center;font-weight: bold"><?php echo "Print Date: " . date('d-m-Y h:i:s a'); ?></p> -->
   </footer>
 </div>
 
@@ -488,4 +635,9 @@
 
 
   }
+
+  var machine = document.querySelector('.machine_name').innerHTML;
+  var details_table_wrapper = document.querySelector('.details_table_wrapper');
+  console.log(details_table_wrapper);
+  details_table_wrapper.insertAdjacentHTML("afterend", "<h5 class='machine_box_name'>" + machine + "</h5>");
 </script>

@@ -26,7 +26,10 @@
     </header>
 
     <div class="section-wrapper">
+    <div class="form-group ml-4 mt-4">
+        <a href="admin/add_technologiest"><button type="button"  class="btn btn-info btn-md "><i class="fa fa-plus-square"></i>&nbsp;Add Specimen</button></a>
 
+      </div>
 
 
       <div class="card my-3 no-b">
@@ -44,12 +47,21 @@
             <th>Action</th>
         
         </thead>
+         <pre>
+         <?php print_r($specimen) ?>
+         </pre>
         <tbody>
           <?php $i=1;
           foreach ($technologist_list as $key => $value) {?>
             <tr>
               <td align="center"><?=$i?></td>
-              <td align="center"><?=$value['specimen']?></td>
+              <td align="center"> 
+              <?php foreach($specimen as $spe){
+                if($spe['id'] == $value['specimen_id']){
+                  echo $spe['specimen'];
+                }
+              } ?>
+              </td>
               <td align="center"><?=$value['checked_by_name']?></br><?=$value['checked_by_designation']?></br><?=$value['checked_by_address']?></br><?=$value['checked_add_1']?><br><?=$value['checked_add_2']?></td>
 
               <td align="center"><?=$value['prepared_by_name']?></br><?=$value['prepared_by_designation']?></br><?=$value['prepared_by_address']?></br><?=$value['prepared_add_1']?><br><?=$value['prepared_add_2']?></td>
@@ -58,7 +70,7 @@
              
 
                <td align="center">
-                 <a href="admin/edit_specimen/<?=$value['id']?>" class="btn btn-primary btn-sm">
+                 <a href="admin/edit_technologiest/<?=$value['id']?>" class="btn btn-primary btn-sm">
                  Edit</a>
         
                </td>

@@ -54,5 +54,6 @@ $route['404_override'] = 'error';
 $route['translate_uri_dashes'] = FALSE;
 $route['doctorscont'] = 'Doctorscont';
 
-// new routes :
-$route['machine'] = "Machine/MachineController/index"; 
+// New routes:
+$route['machine'] = "Machine/MachineController/machine";
+$route['machine/show'] = "Machine/MachineController/show";

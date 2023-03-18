@@ -4,14 +4,20 @@
 <script src="back_assets/js/jasny-bootstrap.min.js"></script>
 <script src="back_assets/js/custom.js"></script>
 <script src="back_assets/js/Chart.bundle.js"></script>
-<script src="back_assets/js/chart.js"></script>
+<!-- <script src="back_assets/js/chart.js"></script> -->
+<!-- <script src="back_assets/js/ckeditor.js"></script> -->
 <script src="back_assets/js/summernote.js"></script>
 <script src="back_assets/js/summernote.js"></script>
-<!-- <script src="//cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script> -->
-<script src="back_assets/js/bootstrap3-typeahead.min.js"></script>
+
+ 
+
 
 <script>
   $(document).ready(function() {
+    // CKEDITOR.replace("ckeditor",
+    //         {
+    //             height: 400
+    //         });
     $('#summernote').summernote({
       tabsize: 2,
         height: 1000,
@@ -26,7 +32,10 @@
         ]
     });
   });
+
+  
 </script>
+
 
 
 <script>
