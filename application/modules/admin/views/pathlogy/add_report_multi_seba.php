@@ -295,24 +295,24 @@
 </div>
  <div class="details_table_wrapper">
    <div style="width:650px;margin:0 auto;display:flex;justify-content: space-between !important;box-sizing:border-box">
-     <div  style="width:50%">
-        <div><p style="display: inline-block;width:100px">Bill No</p> <p style="display: inline-block;">:<?php echo $order_info[0]['test_order_id'] ?></p></div>
-        <div><p style="display: inline-block;width:100px">P_ID </p> <p style="display: inline-block;">:<?php echo $patient_info_id ?></p> </br></div>
-        <div><p style="display: inline-block;width:100px">Name</p> <p style="display: inline-block;">:<?php echo $patient_name ?></p></div>
-        <div><p style="display: inline-block;width:100px">Specimen</p> <p style="display: inline-block;">:<?php echo $specimen ?></p></div>
+     <div  style="width:60%">
+        <div><p style="display: inline-block;width:100px">Bill No</p> <p style="display: inline-block;">: <?php echo $order_info[0]['test_order_id'] ?></p></div>
+        <div><p style="display: inline-block;width:100px">P_ID</p> <p style="display: inline-block;">: <?php echo $patient_info_id ?></p> </br></div>
+        <div><p style="display: inline-block;width:100px">Name</p> <p style="display: inline-block;">: <?php echo $patient_name ?></p></div>
+        <div><p style="display: inline-block;width:100px">Specimen</p> <p style="display: inline-block;">: <?php echo $specimen ?></p></div>
          
      </div>
-     <div style="width: 50%;">
-      <div><p style="display: inline-block;width:100px">Age</p> <p style="display: inline-block;">:<?php echo $Age ?> </p> <br></div>
+     <div style="width: 40%;">
+      <div><p style="display: inline-block;width:100px">Age</p> <p style="display: inline-block;">: <?php echo $Age ?> </p> <br></div>
      <div>
-     <p style="display: inline-block;width:100px">Sex</p> <p style="display: inline-block;">:<?php if ($gender == "Male") {
+     <p style="display: inline-block;width:100px">Sex</p> <p style="display: inline-block;">: <?php if ($gender == "Male") {
                                               echo "M";
                                             } else {
                                               echo "F";
                                             } ?></p> <br>
      </div>
     <div>
-    <p style="display: inline-block;width:100px">Date</p> <p style="display: inline-block;">:<?php echo date('d.m.Y h:i a', strtotime($pdate)); ?></p> 
+    <p style="display: inline-block;width:100px">Date</p> <p style="display: inline-block;">: <?php echo date('d.m.Y h:i a', strtotime($pdate)); ?></p> 
     </div>
     <!-- <div><p style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></p></div> -->
      
@@ -320,7 +320,8 @@
      </div>
    </div>
    <div class="div">
-   <div><b style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></b></div>
+   <div><p style="display: inline-block;width:100px">Refer Doctor</p> <p style="display: inline-block;">: <?php echo $ref_doctor_name . ' ' . $designation ?> </p> <br></div>
+   <!-- <div>Refer doctor :<b style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></b></div> -->
    </div>
  </div>
 <!-- <table class="details_table">
@@ -375,7 +376,7 @@
 
 <div>
 
-<div class="wrapper_table_main" style="border:1px solid black;border-radius:10px;padding:6px;">
+<div class="wrapper_table_main" style="border:1px solid black;border-radius:5px;padding:1px;">
 <table class="wrapper_table" style="width:100%">
  <thead>
  <th style="width:39%;text-align:left">
