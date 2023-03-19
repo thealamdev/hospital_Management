@@ -330,7 +330,7 @@ class Admin extends MX_Controller
 		$this->load->view('test_group/edit_specimen', $data);
 	}
 
-	public function edit_technologiest($id = '')
+	public function edit_technologiest($id = '',$specimen='')
 	{
 		$data['active'] = 'edit_technologiest';
 		$data['page_title'] = 'Edit technologiest';
@@ -341,6 +341,14 @@ class Admin extends MX_Controller
 		$this->db->from('add_specimen');
 		$query = $this->db->get();
 		$data['speciman'] = $query->result_array();
+
+		$this->db->select('specimen');
+		$this->db->from('add_specimen');
+		$this->db->where('id',$specimen);
+		$query = $this->db->get();
+		$data['active_specimen'] = $query->result_array();
+
+
 		$data['technologist_list'] = $this->admin_model->select_with_where2('*', 'id="' . $id . '"', 'add_technologist');
 
 		// $data['specimen_id'] = $id;

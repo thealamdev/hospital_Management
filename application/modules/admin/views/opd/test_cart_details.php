@@ -1,4 +1,4 @@
-<div id="" class="col-md-12">
+<div id="" class="col-lg-12">
 
   <?php if (isset($total_additional_test)) { ?>
     <input type="hidden" name="total_additional_test" id="total_additional_test" value="<?= $total_additional_test ?>">
@@ -19,7 +19,7 @@
         <th>Net Amount</th>
         <th>C/O</th>
         <th>Sub. C/O </th>
-        <th style="width:15%">Doc/Dic %</th>
+        <th style="width:15%;display:none">Doc/Dic %</th>
 
         <!-- <th style="width:25%">Price*Qty</th> -->
         <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
@@ -49,7 +49,7 @@
             <td><?= $item['options']['quk_ref_com'] ?><span style="padding:0"></span></td>
 
             <td style=""><?= $item['options']['quk_ref_com'] ?><span style="padding:0"></span></td>
-            <td >
+            <td style="display:none">
                 <?=(int) $item['options']['discount_percent']?>
               </td>
 
@@ -77,19 +77,19 @@
 
         <tr>
           <td colspan="2" align="right">Total</td>
-          <td><input readonly style="color:white;background-color:#3E54AC;padding:3px;text-align: center;"  type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="total_amount" name="total_amount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
-          <td><input readonly style="padding:0" type="text" id="total_c_o" name="total_c_o" class="form-control col-md-12" /></td>
-          <td><input readonly style="padding:0" type="text" id="sub_c_o" name="sub_c_o" class="form-control col-md-12" /></td>
+          <td><input readonly style="color:white;background-color:#3E54AC;padding:3px;text-align: center;width:80px"  type="text" value="<?= number_format($this->cart->total(), 2, '.', ''); ?>" id="total_amount" name="total_amount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
+          <td><input readonly style="padding:0;" type="text" id="total_c_o" name="total_c_o" class="form-control" /></td>
+          <td><input readonly style="padding:0;" type="text" id="sub_c_o" name="sub_c_o" class="form-control" /></td>
           <td></td>
         </tr>
 
         
         <tr>
           <td colspan="2" align="right">Discount(%)</td>
-          <td><input tabindex="14" autocomplete="off" style="padding:0;text-align: right;" type="text" data-total="<?= $this->cart->total(); ?>" id="discount_percent" name="discount_percent" class="form-control col-md-10" /><span style="padding:0">%</span></td>
+          <td><input tabindex="14" autocomplete="off" style="padding:0;text-align: right;width:80px" type="text" data-total="<?= $this->cart->total(); ?>" id="discount_percent" name="discount_percent" class="form-control col-md-10" /><span style="padding:0">%</span></td>
 
           <td colspan="2" autocomplete="off" align="right">Discount(৳)</td>
-          <td><input tabindex="15" style="padding:0;text-align: right;" type="text" data-total="<?= $this->cart->total(); ?>" name="total_discount" id="discount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
+          <td><input tabindex="15" style="padding:0;text-align: right;width:80px" type="text" data-total="<?= $this->cart->total(); ?>" name="total_discount" id="discount" class="form-control col-md-10" /><span style="padding:0">৳</span></td>
 
           <td></td>
           <td></td>

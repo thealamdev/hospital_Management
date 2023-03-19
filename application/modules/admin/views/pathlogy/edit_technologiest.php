@@ -35,12 +35,14 @@
                 <div class="form-group">
                  <label for="user_name" class="col-sm-12 control-label">Specimen</label>
                  <div class="col-sm-10">
-                   
+                    
                     <select name="specimen_id" class="form-control">
                       <?php 
                       foreach($speciman as $s_men){
                         ?>
-                        <option value="<?php echo $s_men['id'] ?>"><?php echo $s_men['specimen'] ?></option>
+                        <option value="<?php echo $s_men['id'] ?>" <?php if( $s_men['specimen'] === $active_specimen[0]['specimen']) echo 'selected' ?>>
+                        <?php echo $s_men['specimen'] ?>
+                        </option>
                         <?php 
                          }
                         ?>
