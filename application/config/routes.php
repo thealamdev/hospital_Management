@@ -57,3 +57,6 @@ $route['doctorscont'] = 'Doctorscont';
 // New routes:
 $route['machine'] = "Machine/MachineController/machine";
 $route['machine/show'] = "Machine/MachineController/show";
+$route['machine/edit/(:any)'] = "Machine/MachineController/edit/$1";
+$route['machine/delete/(:any)'] = "Machine/MachineController/delete/$1";
+// $route['MachineController/show'] = 'MachineController/show';
