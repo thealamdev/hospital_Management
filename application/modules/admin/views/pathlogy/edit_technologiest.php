@@ -148,7 +148,10 @@
          <label for="technologist_designation" class="col-sm-12 control-label">Technologist Designation</label>
          <div class="col-sm-12">
            <input class="form-control"  name="technologist_designation" value="<?php echo $technologist_list[0]['technologist_designation'] ?>"    id="technologist_designation" placeholder="" type="file">
+
+           <img width="40px" src="<?php echo base_url('uploads/hospital_logo/' . $technologist_list[0]['technologist_designation']); ?>" alt="Image description">
          </div>
+          
        </div>
 
        <div class="form-group">

@@ -348,17 +348,38 @@ class Admin extends MX_Controller
 		$this->load->view('pathlogy/edit_technologiest', $data);
 	}
 
-	 
-	 
+
+
 
 	public function update_tecnologiest($id = '')
 	{
-		// $val = array('specimen' => $this->input->post('specimen'));
-		
-		// $this->admin_model->update_function2('id="' . $id . '"', 'add_specimen', $val);
 		$id = $this->input->post('id');
-		// print_r($id);
-		// die();
+
+		$query = $this->db->select('technologist_designation')
+			->from('add_technologist')
+			->where('id', $id)
+			->get();
+
+		$results = $query->result_array();
+
+		$target_path = $results[0]['technologist_designation'];
+
+		if ($_FILES['technologist_designation']['name']) {
+			$name_generator = $this->name_generator($_FILES['technologist_designation']['name'], uniqid());
+			$i_ext = explode('.', $_FILES['technologist_designation']['name']);
+			$target_path = $name_generator . '.' . end($i_ext);;
+			$size = getimagesize($_FILES['technologist_designation']['tmp_name']);
+
+			if (move_uploaded_file($_FILES['technologist_designation']['tmp_name'], 'uploads/hospital_logo/' . $target_path)) {
+				$hospital_logo = $target_path;
+			}
+
+			// $data_logo['hospital_logo'] = $hospital_logo;
+			// $this->admin_model->update_function('hospital_id', $id, 'hospital', $data_logo);
+		}
+
+		 
+
 		if ($this->admin_model->check_row('*', 'id="' . $id . '"', 'add_technologist')) {
 			$technologist_data = array(
 				'specimen_id' => $this->input->post('specimen_id'),
@@ -375,7 +396,7 @@ class Admin extends MX_Controller
 				'prepared_add_2' => $this->input->post('prepared_add_2'),
 
 				'technologist_name' => $this->input->post('technologist_name'),
-				'technologist_designation' => $this->input->post('technologist_designation'),
+				'technologist_designation' => $target_path,
 				'technologist_address' => $this->input->post('technologist_address'),
 				'technologist_add_1' => $this->input->post('technologist_add_1'),
 				'technologist_add_2' => $this->input->post('technologist_add_2'),
@@ -383,9 +404,7 @@ class Admin extends MX_Controller
 			);
 
 			$this->load->admin_model->update_function2('id="' . $id . '"', 'add_technologist', $technologist_data);
-		}
-		
-		else {
+		} else {
 			$this->load->view('pathlogy/edit_technologiest');
 		}
 
@@ -18452,8 +18471,8 @@ class Admin extends MX_Controller
 
 		// $data['technologist_list'] = $this->admin_model->select_join_where('*,t.specimen_id', 'add_technologist t', 'add_specimen s', 't.specimen_id=s.id');
 
-		 
-		
+
+
 		$this->db->select('*');
 		$this->db->from('add_technologist');
 		$data['technologist_list'] = $this->db->get()->result_array();
