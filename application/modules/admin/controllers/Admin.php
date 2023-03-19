@@ -325,9 +325,6 @@ class Admin extends MX_Controller
 		$data['admin_type'] = $this->session->userdata['logged_in']['role'];
 
 		$data['specimen_list'] = $this->admin_model->select_with_where2('*', 'status=1 and id="' . $id . '"', 'add_specimen');
-
-		$data['technologist_list'] = $this->admin_model->select_with_where2('*', 'specimen_id="' . $id . '"', 'add_technologist');
-
 		$data['specimen_id'] = $id;
 
 		$this->load->view('test_group/edit_specimen', $data);
@@ -357,12 +354,14 @@ class Admin extends MX_Controller
 	public function update_tecnologiest($id = '')
 	{
 		// $val = array('specimen' => $this->input->post('specimen'));
-
+		
 		// $this->admin_model->update_function2('id="' . $id . '"', 'add_specimen', $val);
 		$id = $this->input->post('id');
+		// print_r($id);
+		// die();
 		if ($this->admin_model->check_row('*', 'id="' . $id . '"', 'add_technologist')) {
 			$technologist_data = array(
-
+				'specimen_id' => $this->input->post('specimen_id'),
 				'checked_by_name' => $this->input->post('checked_by'),
 				'checked_by_designation' => $this->input->post('checked_by_designation'),
 				'checked_by_address' => $this->input->post('checked_by_address'),
@@ -384,58 +383,11 @@ class Admin extends MX_Controller
 			);
 
 			$this->load->admin_model->update_function2('id="' . $id . '"', 'add_technologist', $technologist_data);
-		} else {
-			$technologist_data = array(
-
-				'checked_by_name' => $this->input->post('checked_by'),
-				'checked_by_designation' => $this->input->post('checked_by_designation'),
-				'checked_by_address' => $this->input->post('checked_by_address'),
-				'checked_add_1' => $this->input->post('checked_add_1'),
-				'checked_add_2' => $this->input->post('checked_add_2'),
-
-				'prepared_by_name' => $this->input->post('prepared_by'),
-				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
-				'prepared_by_address' => $this->input->post('prepared_by_address'),
-				'prepared_add_1' => $this->input->post('prepared_add_1'),
-				'prepared_add_2' => $this->input->post('prepared_add_2'),
-
-				'technologist_name' => $this->input->post('technologist_name'),
-				'technologist_designation' => $this->input->post('technologist_designation'),
-				'technologist_address' => $this->input->post('technologist_address'),
-				'technologist_add_1' => $this->input->post('technologist_add_1'),
-				'technologist_add_2' => $this->input->post('technologist_add_2'),
-				'specimen_id' => $id
-
-			);
-
-			$this->load->admin_model->insert('add_technologist', $technologist_data);
 		}
-
-		// $technologist_data = array(
-
-		// 	'checked_by_name' => $this->input->post('checked_by'),
-		// 	'checked_by_designation' => $this->input->post('checked_by_designation'),
-		// 	'checked_by_address' => $this->input->post('checked_by_address'),
-		// 	'checked_add_1' => $this->input->post('checked_add_1'),
-		// 	'checked_add_2' => $this->input->post('checked_add_2'),
-
-		// 	'prepared_by_name' => $this->input->post('prepared_by'),
-		// 	'prepared_by_designation' => $this->input->post('prepared_by_designation'),
-		// 	'prepared_by_address' => $this->input->post('prepared_by_address'),
-		// 	'prepared_add_1' => $this->input->post('prepared_add_1'),
-		// 	'prepared_add_2' => $this->input->post('prepared_add_2'),
-
-		// 	'technologist_name' => $this->input->post('technologist_name'),
-		// 	'technologist_designation' => $this->input->post('technologist_designation'),
-		// 	'technologist_address' => $this->input->post('technologist_address'),
-		// 	'technologist_add_1' => $this->input->post('technologist_add_1'),
-		// 	'technologist_add_2' => $this->input->post('technologist_add_2'),
-		// 	'specimen_id' => $id
-
-		// );
-
-		// $this->load->admin_model->insert('add_technologist', $technologist_data);
-
+		
+		else {
+			$this->load->view('pathlogy/edit_technologiest');
+		}
 
 		redirect("admin/technologist_list/" . $id, 'refresh');
 	}
@@ -446,59 +398,6 @@ class Admin extends MX_Controller
 		$val = array('specimen' => $this->input->post('specimen'));
 
 		$this->admin_model->update_function2('id="' . $id . '"', 'add_specimen', $val);
-
-		if ($this->admin_model->check_row('*', 'specimen_id="' . $id . '"', 'add_technologist')) {
-			$technologist_data = array(
-
-				'checked_by_name' => $this->input->post('checked_by'),
-				'checked_by_designation' => $this->input->post('checked_by_designation'),
-				'checked_by_address' => $this->input->post('checked_by_address'),
-				'checked_add_1' => $this->input->post('checked_add_1'),
-				'checked_add_2' => $this->input->post('checked_add_2'),
-
-				'prepared_by_name' => $this->input->post('prepared_by'),
-				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
-				'prepared_by_address' => $this->input->post('prepared_by_address'),
-				'prepared_add_1' => $this->input->post('prepared_add_1'),
-				'prepared_add_2' => $this->input->post('prepared_add_2'),
-
-				'technologist_name' => $this->input->post('technologist_name'),
-				'technologist_designation' => $this->input->post('technologist_designation'),
-				'technologist_address' => $this->input->post('technologist_address'),
-				'technologist_add_1' => $this->input->post('technologist_add_1'),
-				'technologist_add_2' => $this->input->post('technologist_add_2'),
-
-			);
-
-			$this->load->admin_model->update_function2('specimen_id="' . $id . '"', 'add_technologist', $technologist_data);
-		} else {
-			$technologist_data = array(
-
-				'checked_by_name' => $this->input->post('checked_by'),
-				'checked_by_designation' => $this->input->post('checked_by_designation'),
-				'checked_by_address' => $this->input->post('checked_by_address'),
-				'checked_add_1' => $this->input->post('checked_add_1'),
-				'checked_add_2' => $this->input->post('checked_add_2'),
-
-				'prepared_by_name' => $this->input->post('prepared_by'),
-				'prepared_by_designation' => $this->input->post('prepared_by_designation'),
-				'prepared_by_address' => $this->input->post('prepared_by_address'),
-				'prepared_add_1' => $this->input->post('prepared_add_1'),
-				'prepared_add_2' => $this->input->post('prepared_add_2'),
-
-				'technologist_name' => $this->input->post('technologist_name'),
-				'technologist_designation' => $this->input->post('technologist_designation'),
-				'technologist_address' => $this->input->post('technologist_address'),
-				'technologist_add_1' => $this->input->post('technologist_add_1'),
-				'technologist_add_2' => $this->input->post('technologist_add_2'),
-				'specimen_id' => $id
-
-			);
-
-			$this->load->admin_model->insert('add_technologist', $technologist_data);
-		}
-
-
 
 		redirect("admin/edit_specimen/" . $id, 'refresh');
 	}
@@ -18562,21 +18461,6 @@ class Admin extends MX_Controller
 		$this->db->select('*');
 		$this->db->from('add_specimen');
 		$data['specimen'] = $this->db->get()->result_array();
-		//  $data['technologist_list']->result();
-
-		// $data['technologist_list'] = $this->add_technologist
-		// ->select('*')
-		// ->join('add_specimen', 'add_specimen.add_technologist_id = add_technologist.id', 'left')
-		// ->get()
-		// ->result();
-
-		// $this->db->select('*');
-		// $this->db->from('add_technologist');
-		// $this->db->join('add_specimen', 'id = specimen_id');
-		// $query = $this->db->get();
-		// $data['technologist_list'] = $query->result_array();
-
-		// $query = $this->db->get('add_specimen');
 		$data['speciman'] = $this->db->get('add_specimen');
 
 		$this->load->view('pathlogy/technologist_list', $data);

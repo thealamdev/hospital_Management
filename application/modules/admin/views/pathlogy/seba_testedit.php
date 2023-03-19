@@ -9,11 +9,12 @@ table{
 }
 
 .bio-chemestry{
+
   border: 1px solid red !important;
 }
 .wrapper_table{
   width: 650px !important;
-      border: 1px solid black;
+      border: 2px solid black;
       padding: 15px;
       border-radius: 10px;
     }
@@ -111,7 +112,7 @@ table{
                         {
                           ?>
 
-                          <div class="bio-chemestry">
+                          <div class="">
                            <table class="farhana-table-4"> 
                             <tr>
                               <th class="farhana-table-4-tr-1" colspan="4">

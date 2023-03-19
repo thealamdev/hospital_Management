@@ -425,9 +425,10 @@
 
   .details_table_wrapper {
     width: 650px !important;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #222;
     padding: 10px;
+    box-sizing: border-box;
   }
 
   .details_main {
@@ -441,7 +442,7 @@
 
 
   .details_table {
-    border: 1px solid #222;
+    border: 2px solid #222;
     border-radius: 4px;
     padding: 10px;
   }
@@ -463,7 +464,7 @@
   }
 
   .signature_wrapper {
-    width: 700px;
+    width: 650px !important;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

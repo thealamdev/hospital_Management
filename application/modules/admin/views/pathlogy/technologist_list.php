@@ -27,7 +27,7 @@
 
     <div class="section-wrapper">
     <div class="form-group ml-4 mt-4">
-        <a href="admin/add_technologiest"><button type="button"  class="btn btn-info btn-md "><i class="fa fa-plus-square"></i>&nbsp;Add Specimen</button></a>
+        <a href="admin/add_technologiest"><button type="button"  class="btn btn-info btn-md "><i class="fa fa-plus-square"></i>&nbsp;Add Technologiest</button></a>
 
       </div>
 
@@ -47,9 +47,7 @@
             <th>Action</th>
         
         </thead>
-         <pre>
-         <?php print_r($specimen) ?>
-         </pre>
+ 
         <tbody>
           <?php $i=1;
           foreach ($technologist_list as $key => $value) {?>

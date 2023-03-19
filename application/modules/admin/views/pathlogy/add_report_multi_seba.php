@@ -66,7 +66,7 @@
       border: 1px solid gray;
     }
 
-    .wrapper_table{
+    .wrapper_table_main{
       border: 1px solid black;
       padding: 15px;
       border-radius: 10px;
@@ -119,6 +119,32 @@
     iframe#cke_editor iframe body select#select_box {
       border: none;
       color: red;
+    }
+
+    .wrapper_table tr th:first-child {
+      text-align: left;
+      width: 40%;
+      border-left: none !important;
+
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+
+    .wrapper_table tr th:nth-child(2) {
+      text-align: center;
+      width: 20%;
+    }
+
+    .wrapper_table tr th:last-child {
+      text-align: left;
+      width: 30%;
+      border-right: none !important;
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .wrapper_table {
+      border-top-left-radius: 8px;
     }
   </style>
   <!-- Pre loader -->
@@ -174,7 +200,7 @@
                 <div class="group_report_wrapper">
                   <div class="group_report">
                     <div class="group_title">
-                      <p>Group Name 1</p>
+                      <p>Group Name</p>
                     </div>
                     <div class="group_clone">
                       <b>:</b>
@@ -264,12 +290,17 @@
       margin: 0 auto;
       display: flex !important;
       justify-content: space-between !important; -->
+      <div style="width:100%;margin:0 auto;text-align:center;font-size:20px;font-weight:700;padding-bottom:10px">  
+<?php echo $test_title ?>
+</div>
  <div class="details_table_wrapper">
-   <div style="width:650px;margin:0 auto;display:flex;justify-content: space-between !important;">
+   <div style="width:650px;margin:0 auto;display:flex;justify-content: space-between !important;box-sizing:border-box">
      <div  style="width:50%">
         <div><p style="display: inline-block;width:100px">Bill No</p> <p style="display: inline-block;">:<?php echo $order_info[0]['test_order_id'] ?></p></div>
         <div><p style="display: inline-block;width:100px">P_ID </p> <p style="display: inline-block;">:<?php echo $patient_info_id ?></p> </br></div>
         <div><p style="display: inline-block;width:100px">Name</p> <p style="display: inline-block;">:<?php echo $patient_name ?></p></div>
+        <div><p style="display: inline-block;width:100px">Specimen</p> <p style="display: inline-block;">:<?php echo $specimen ?></p></div>
+         
      </div>
      <div style="width: 50%;">
       <div><p style="display: inline-block;width:100px">Age</p> <p style="display: inline-block;">:<?php echo $Age ?> </p> <br></div>
@@ -283,8 +314,13 @@
     <div>
     <p style="display: inline-block;width:100px">Date</p> <p style="display: inline-block;">:<?php echo date('d.m.Y h:i a', strtotime($pdate)); ?></p> 
     </div>
+    <!-- <div><p style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></p></div> -->
+     
 
      </div>
+   </div>
+   <div class="div">
+   <div><b style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></b></div>
    </div>
  </div>
 <!-- <table class="details_table">
@@ -329,10 +365,9 @@
 </tr>
 
 </table> -->
-<div>  
-<!-- <?php echo $test_title ?> -->
-
-</div>
+<!-- <div style="width:100%;margin:0 auto;text-align:center;font-size:20px;font-weight:700">  
+<?php echo $test_title ?>
+</div> -->
 
 <?php if ($heading == 'yes') { ?>
 
@@ -340,19 +375,19 @@
 
 <div>
 
-<div class="wrapper_table" style="border:1px solid black;border-radius:10px;padding:10px;">
-<table>
+<div class="wrapper_table_main" style="border:1px solid black;border-radius:10px;padding:6px;">
+<table class="wrapper_table" style="width:100%">
  <thead>
- <th>
+ <th style="width:39%;text-align:left">
    Investigation
  </th>
- <th >
+ <th style="width:19.5%;text-align:left">
    Result
  </th>
- <th >
+ <th style="width:18.5%;text-align:left">
   Unit
 </th>
-<th>
+<th style="width:23%;text-align:left">
   Reference range
 </th>
  </thead>

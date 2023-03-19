@@ -374,7 +374,6 @@
     }
   </style>
 
-
   <?php
   echo $description;
   ?>

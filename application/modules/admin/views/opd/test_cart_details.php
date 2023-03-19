@@ -83,6 +83,7 @@
           <td></td>
         </tr>
 
+        
         <tr>
           <td colspan="2" align="right">Discount(%)</td>
           <td><input tabindex="14" autocomplete="off" style="padding:0;text-align: right;" type="text" data-total="<?= $this->cart->total(); ?>" id="discount_percent" name="discount_percent" class="form-control col-md-10" /><span style="padding:0">%</span></td>

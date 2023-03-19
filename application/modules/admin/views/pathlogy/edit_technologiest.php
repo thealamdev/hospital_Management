@@ -30,7 +30,7 @@
         <div class="mt-sm-3 shadow-lg p-3 mb-5 rounded">  
           <form method="post" action="admin/update_tecnologiest" enctype="multipart/form-data">
             <div class="row">
-            <input type="hidden" value="<?php $technologist_list[0]['id'] ?>" name="id">
+            <input type="hidden" value="<?php echo $technologist_list[0]['id'] ?>" name="id">
               <div class="col-md-6">
                 <div class="form-group">
                  <label for="user_name" class="col-sm-12 control-label">Specimen</label>

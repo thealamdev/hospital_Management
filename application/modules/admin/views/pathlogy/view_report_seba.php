@@ -354,7 +354,6 @@
       <table style="margin:0 auto;
       width: 90%!important;
       margin-top: 5px;
-      /*border: 2px solid #111111;*/
       border-radius: 8px;
       font-size: 14px !important; 
       width: 840px !important;">
