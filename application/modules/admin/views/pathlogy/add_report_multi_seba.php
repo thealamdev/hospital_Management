@@ -284,8 +284,6 @@
 											<div class="textarea_width">
 												<textarea id="editor" name="mresult">
 
-
-
  <?php
 	if (count($multi_result_val) > 0) {
 		$report_val = trim($multi_result_val[0]['mresult']);
@@ -303,7 +301,13 @@
      <div  style="width:55%">
 	 	<div><b><p style="display: inline-block;width:98px">Patient ID</p></b> <p style="display: inline-block;">: <?php echo $patient_info_id ?></p></div>
        <!--  <div><p style="display: inline-block;width:100px">Invoice No.</p> <p style="display: inline-block;">: <?php echo $order_info[0]['test_order_id'] ?></p></div> -->
-        <div><b><p style="display: inline-block;width:98px">Patient</p></b> <p style="display: inline-block;">: <?php echo $patient_name ?></p></div>
+        <div style="margin-top: -25px !important;"><b><p style="display: inline-block;width:98px">Patient</p></b> <p style="display: inline-block;">: <?php echo $patient_name ?></p></div>
+
+		<div style="margin-top: -25px !important;">
+			<b><p style="display: inline-block;width:98px">Specimen</p></b>
+			 <p style="display: inline-block;">: <?php echo $specimen ?></p>
+		</div>
+		 
      </div>
 
 	 <!-- <div style="width: 34%;">
@@ -315,10 +319,10 @@
     <b><p style="display: inline-block;width:120px">Invoice Date</p></b> <p style="display: inline-block;"><?php echo date('d.m.Y', strtotime($created_at)) ?></p> 
     </div>
  
-	 <div>
+	 <div style="margin-top: -25px !important;">
     <b><p style="display: inline-block;width:98px">Report Date</p></b> <p style="display: inline-block;">: <?php echo date('d.m.Y'); ?></p> 
     </div>
-      <div><b><p style="display: inline-block;width:98px">Age</p></b> <p style="display: inline-block;">: <?php echo $Age ?> - </p> <?php if ($gender == "Male") {
+      <div style="margin-top: -25px !important;"><b><p style="display: inline-block;width:98px">Age</p></b> <p style="display: inline-block;">: <?php echo $Age ?> - </p> <?php if ($gender == "Male") {
 																																echo "Male";
 																															} else {
 																																echo "Female";
@@ -335,7 +339,7 @@
    <div><b><p style="display: inline-block;width:98px">Referred By</p></b> <p style="display: inline-block;">: <?php echo $ref_doctor_name . ' ' . $designation ?> </p> <br></div>
    <!-- <div>Refer doctor :<b style="display: inline-block;"><?php echo $ref_doctor_name . ' ' . $designation ?></b></div> -->
    </div>
-   <div><b><p style="display: inline-block;width:98px">Specimen</p></b> <p style="display: inline-block;">: <?php echo $specimen ?></p></div>
+   <!-- <div><b><p style="display: inline-block;width:98px">Specimen</p></b> <p style="display: inline-block;">: <?php echo $specimen ?></p></div> -->
  </div>
 <!-- <table class="details_table">
  <tr>
