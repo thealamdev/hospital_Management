@@ -2577,7 +2577,9 @@ class Admin extends MX_Controller
 
 		$data['doctor_list'] = $this->admin_model->select_with_where2('*', 'status=1', 'doctor');
 
-
+		// $dateTime = date('Y-m');
+		// print_r($dateTime);
+		// die();
 
 		// $this->form_validation->set_rules('patient_address', 'Patient Address', 'required');
 		// $this->form_validation->set_rules('age', 'Age', 'required');
@@ -2588,7 +2590,8 @@ class Admin extends MX_Controller
 		// $this->form_validation->set_rules('operator_name', 'Operator Name', 'required');
 
 
-
+		// print_r($data);
+		// die();
 		if ($this->form_validation->run() == FALSE) {
 			$data['test_info'] = $this->get_all_test_and_subtest();
 			$data['quack_doc_id'] = 0;
@@ -3518,21 +3521,27 @@ class Admin extends MX_Controller
 			$mobile_no = $this->input->post('mobile_no');
 		}
 
+		 
 
 		$ref_doc_name = explode('#', $this->input->post('ref_doc_name'));
 
 		$quack_doc_name = explode('#', $this->input->post('quack_doc_name'));
 
-		$last_patient_info_id = $this->admin_model->get_last_row3('patient_info_id', 'opd_patient_info', 'status=1');
+		$last_patient_info_id = $this->admin_model->get_last_row3('id', 'opd_patient_info', 'status=1');
 
-		// "<pre>";print_r($last_patient_info_id);die();
+		 
+		$dateTime = date('ym');
 
-		if ($last_patient_info_id == null) {
-			$patient_info_id = 1;
+		if (empty($last_patient_info_id)) {
+			$insert_patient_id = $dateTime.str_pad( 1, 6, "0", STR_PAD_LEFT );
 		} else {
-			$patient_info_id = $last_patient_info_id[0]['patient_info_id'] + 1;
+			$insert_patient_id = $dateTime.str_pad($last_patient_info_id[0]['id'] + 1, 6, "0", STR_PAD_LEFT );
 		}
+		// echo "<pre>";
+		// print_r(($dateTime.str_pad($last_patient_info_id[0]['id'] + 1, 6, "0", STR_PAD_LEFT )));
+		// die();
 
+		 
 		// "<pre>";print_r($this->input->post('date_of_birth'));die();
 
 		$data = array(
@@ -3542,7 +3551,7 @@ class Admin extends MX_Controller
 			'ref_doctor_id' => $ref_doc_name[1],
 			'address' => $this->input->post('patient_address'),
 			'age' => $age,
-			'patient_info_id' => $patient_info_id,
+			'patient_info_id' => (int)$insert_patient_id,
 			'date_of_birth' => $this->input->post('date_of_birth'),
 			'gender' => $this->input->post('gender'),
 			// 'blood_group' => $this->input->post('blood_group'),

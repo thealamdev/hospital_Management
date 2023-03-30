@@ -568,7 +568,7 @@
                 if ($.fn.DataTable.isDataTable("#test_info_table")) {
                   $('#test_info_table').DataTable().clear().destroy();
                 }
-
+                
                 $("#test_info_table").dataTable({});
 
                 $('.add_this_test').prop("disabled", false);
@@ -583,8 +583,7 @@
 
       });
 
-
-
+      
       $(document).on('click', '#opd_patient_ul>li', function(event) {
 
         get_all_opd_existing_data(mobile_no_data);

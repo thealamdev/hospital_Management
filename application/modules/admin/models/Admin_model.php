@@ -1908,7 +1908,7 @@ public function pathology_group_wise_report_patient_id($patient_id)
    pathologoy.order_id=opd_patient_test_order_info.id
    inner join diagnostic_test_subgroup on pathologoy.test_id=diagnostic_test_subgroup.id
    inner join diagnostic_test_group on diagnostic_test_subgroup.mtest_id=diagnostic_test_group.test_id
-   where opd_patient_info.id='$patient_id' and opd_patient_info.status=1 and opd_patient_test_order_info.status=1 and pathologoy.status=1
+   where opd_patient_info.patient_info_id='$patient_id' and opd_patient_info.status=1 and opd_patient_test_order_info.status=1 and pathologoy.status=1
    group by diagnostic_test_group.test_id, pathologoy.order_id";  
    $result = $this->db->query($sql) or die ("Schema Query Failed"); 
    $result=$result->result_array();

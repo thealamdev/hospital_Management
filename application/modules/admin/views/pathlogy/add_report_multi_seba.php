@@ -146,6 +146,10 @@
     .wrapper_table {
       border-top-left-radius: 8px;
     }
+
+    /* .ck-editor__editable {
+       max-height: 1000px !important;
+} */
   </style>
   <!-- Pre loader -->
   <?php $this->load->view('back/loader'); ?>

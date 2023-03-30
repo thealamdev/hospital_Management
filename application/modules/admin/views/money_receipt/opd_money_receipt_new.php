@@ -66,7 +66,8 @@
        justify-content: space-between;
      }
 
-     .patient_left_details p,span {
+     .patient_left_details p,
+     span {
        font-size: 16px;
        font-weight: 500;
        font-family: Arial, sans-serif;
@@ -87,12 +88,12 @@
      }
 
      th {
-       background-color: gray;
-       color: white;
+       /* background-color: gray; */
+       color: black;
      }
 
      tr:nth-child(even) {
-       background-color: #f2f2f2;
+       /* background-color: #f2f2f2; */
      }
 
      thead {
@@ -130,11 +131,49 @@
 
      }
 
-     .details_width{
-      width:100px;
-      display: inline-block;
+     .details_width {
+       width: 100px;
+       display: inline-block;
      }
-/* 
+
+     /* th,td{
+  border: 1px solid;
+  border-left:none;
+  padding-left: 10px;
+  border-top:none;
+  border-right:none;
+} */
+
+.extra_class{
+  border: 1px solid;
+  border-left:none;
+  padding-left: 10px;
+  border-top:none;
+}
+
+.extra_class1{
+  border: 1px solid;
+  border-left:none;
+  padding-left: 10px;
+  border-top:none;
+  border-right: none;
+}
+
+.payments_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.first_div{
+  width: 50%;
+}
+
+.second_div{
+  width:50%
+}
+
+     /* 
      p,span{
       display: inline-block;
      } */
@@ -176,20 +215,20 @@
      <div class="cash_recipt_wrapper">
        <h2 style="text-align: center;">CASH RECEIPT</h2>
      </div>
- 
+
    </div>
 
    <div class="patient_details_wrapper">
      <div class="patient_left_details">
-       <p class="details_width" style="margin-bottom: 4px;">Patient ID</p> <span><b>: <?= $test_info[0]['patient_id'] ?></b> </span>
+       <p class="details_width" style="margin-bottom: 4px;">Patient ID</p> <span><b>: <?= $test_info[0]['patient_info_id'] ?></b> </span>
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
-        echo $generator->getBarcode(  $test_info[0]['patient_id'], $generator::TYPE_CODE_128);
+        echo $generator->getBarcode($test_info[0]['patient_id'], $generator::TYPE_CODE_128);
         ?>
 
-       <p class="details_width" style="margin-top: 4px;">Bill No</p> <span>:<?= $test_info[0]['test_order_id'] ?></span> <br>  
-       <p class="details_width">Patient Name </p> <span>:  <?= $test_info[0]['patient_name'] ?> </span> <br>
+       <p class="details_width" style="margin-top: 4px;">Bill No</p> <span>:<?= $test_info[0]['test_order_id'] ?></span> <br>
+       <p class="details_width">Patient Name </p> <span>: <?= $test_info[0]['patient_name'] ?> </span> <br>
        <p class="details_width">Sex</p> <span>: <?= $test_info[0]['gender'] ?></span> <br>
        <p class="details_width">Age</p> <span>: <?= $test_info[0]['age'] ?></span> <br>
        <!-- <p class="details_width">Doctor Name</p> <span>: <?= $test_info[0]['ref_doc_name'] ?></span> -->
@@ -199,7 +238,7 @@
        <?php
         require 'vendor/autoload.php';
         $generator = new BarcodeGeneratorHTML();
-        echo $generator->getBarcode(   $test_info[0]['test_order_id']  , $generator::TYPE_CODE_128);
+        echo $generator->getBarcode($test_info[0]['test_order_id'], $generator::TYPE_CODE_128);
         ?>
        <p class="details_width" style="margin-top: 4px;">Date</p> <span>: <?= date("d-m-Y H:i:s", strtotime($test_info[0]['created_at'])) ?></span> <br>
        <p class="details_width">Mobile No </p> <span>: <?= $test_info[0]['mobile_no'] ?></span> <br>
@@ -284,7 +323,8 @@
      <div class="payment_status_wrapper">
        <h2 style="text-align: center;font-size:20px">PAYMENT DETAILS</h2>
      </div>
-     <div class="payment_details">
+
+     <!-- <div class="payment_details">
        <table>
          <thead style="text-align: left;">
            <th>Total Amount</th>
@@ -306,10 +346,67 @@
            </tr>
          </tbody>
        </table>
-     </div>
+     </div> -->
 
 
    </div>
+
+   <!-- new code: -->
+   <div class="payments_wrapper">
+    <div class="first_div">
+
+    </div>
+
+    <div class="second_div">
+    <table width=50%>
+     <thead style="display:none">
+       <tr>
+         <th>Total Amount</th>
+         <th>Vat (+)</th>
+         <th>Discount (-)</th>
+         <th>Net Amount</th>
+         <th>Receive Amount</th>
+         <th>Due Amount</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Total Amount: </th>
+         <td style="text-align: right !important;" class="extra_class1"><b><?= $test_info[0]['total_amount'] ?></b></td>
+
+       </tr>
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Vat (+): </th>
+         <td style="text-align: right !important;" class="extra_class1"><?= $test_info[0]['vat'] ?></td>
+
+       </tr>
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Discount (-): </th>
+         <td style="text-align: right !important;" class="extra_class1"><?= $test_info[0]['total_discount'] ?></td>
+
+       </tr>
+
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Net Amount :</th>
+         <td style="text-align: right !important;" class="extra_class1"><b><?= ($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount'] ?></b></td>
+
+       </tr>
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Receive Amount: </th>
+         <td style="text-align: right !important;" class="extra_class1"><b><?= $test_info[0]['paid_amount'] ?></b></td>
+
+       </tr>
+       <tr>
+         <th style="text-align: right !important;" class="extra_class">Due Amount: </th>
+         <td style="text-align: right !important;" class="extra_class1"><b><?= (($test_info[0]['total_amount'] + $test_info[0]['vat']) - $test_info[0]['total_discount']) - $test_info[0]['paid_amount'] ?></b></td>
+
+       </tr>
+     </tbody>
+   </table>
+   <!-- end new code: -->
+    </div>
+   </div>
+ 
 
    <div class="payment_auth_wrapper">
 
@@ -401,7 +498,7 @@
      <p>Discount By: <?= $test_info[0]['discount_ref'] ?></p>
      <p>Ref Dr. ID: <?= $test_info[0]['quack_doc_name'] ?></p>
 
-     <div class="direction_details">
+     <!-- <div class="direction_details">
        <h4>যেসকল রুমে যাবেন :</h4>
        <ul>
          <li>কালেকশন রুম-১১২ **</li>
@@ -416,7 +513,7 @@
        <h3 style="text-align: center;">রিসিট ব্যতীত কোন রিপোর্ট ডেলিভারি দেওয়া হয় না</h3>
        <p style="text-align: center; margin-top:10px">Print Date: <?php echo "Print Date: " . date('l jS \of F Y h:i:s A') ?></p>
        <p style="text-align: center;font-size:14px">Developed By Shah Alam (01795678789)</p>
-     </div>
+     </div> -->
    </div>
 
    <footer class="footer">

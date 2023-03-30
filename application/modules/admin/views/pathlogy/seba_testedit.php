@@ -121,7 +121,7 @@ table{
                             </tr>
 
                             <tr>
-                              <td>
+                              <td width="100px">
                                 <?php echo $sub_test_title?>
                               </td>
                               <td ><b></b></td>

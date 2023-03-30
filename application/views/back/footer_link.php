@@ -14,10 +14,10 @@
 
 <script>
   $(document).ready(function() {
-    // CKEDITOR.replace("ckeditor",
-    //         {
-    //             height: 400
-    //         });
+    CKEDITOR.replace("ckeditor",
+            {
+                height: 1000
+            });
     $('#summernote').summernote({
       tabsize: 2,
         height: 1000,

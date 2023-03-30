@@ -1,3 +1,4 @@
+ 
       <div class="container-fluid">
         <div class="row" >
 
@@ -8,11 +9,12 @@
          <input type="hidden" id="discount_commission_type" value="<?=$discount_commission_type[0]['type']?>" name="discount_commission_type">
 
 
-         <div class="col-md-6">
+         <div class="col-md-12">
           <div class="card no-b">
+          
             <div class="card-body" style="margin: 0px;">
               <!-- <div class="card-title">Simple usage</div> -->
-              <table id="test_info_table" data-page-length="5" class="table table-striped data-tables"
+              <table id="test_info_table"  class="table table-striped data-tables"
               >
               <thead class="bg-dark text-white">
                  
@@ -210,7 +212,7 @@
         <input type="hidden" name="vat_store_per" id="vat_store_per">
 
 
-        <div class="col-md-6">
+        <div class="col-md-12">
          <div class="card no-b">
           <div class="card-body" >
             <div id="test_cart_details">
@@ -223,3 +225,5 @@
 
     </div>
   </div>
+
+   

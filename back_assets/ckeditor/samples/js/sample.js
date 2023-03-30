@@ -10,9 +10,12 @@
 
 // // The trick to keep the editor in the sample quite small
 // // unless user specified own height.
-// CKEDITOR.config.height = 300;
-// CKEDITOR.config.width = 'auto';
+CKEDITOR.config.height = 600;
+CKEDITOR.config.width = 'auto';
+// CKEDITOR.config.extraPlugins = 'autogrow';
+ 
 
+ 
 // var initSample = ( function() {
 // 	var wysiwygareaAvailable = isWysiwygareaAvailable(),
 // 		isBBCodeBuiltIn = !!CKEDITOR.plugins.get( 'bbcode' );
