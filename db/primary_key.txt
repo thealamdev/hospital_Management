@@ -1,0 +1,643 @@
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `acc_group`
+--
+ALTER TABLE `acc_group`
+  ADD PRIMARY KEY (`groupid`);
+
+--
+-- Indexes for table `acc_head`
+--
+ALTER TABLE `acc_head`
+  ADD PRIMARY KEY (`head_id`);
+
+--
+-- Indexes for table `add_income_expense`
+--
+ALTER TABLE `add_income_expense`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `add_specimen`
+--
+ALTER TABLE `add_specimen`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `specimen` (`specimen`);
+
+--
+-- Indexes for table `add_technologist`
+--
+ALTER TABLE `add_technologist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin_type`
+--
+ALTER TABLE `admin_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `appointment_payment`
+--
+ALTER TABLE `appointment_payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `area`
+--
+ALTER TABLE `area`
+  ADD PRIMARY KEY (`area_id`);
+
+--
+-- Indexes for table `blood_group`
+--
+ALTER TABLE `blood_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `buy`
+--
+ALTER TABLE `buy`
+  ADD PRIMARY KEY (`buy_id`);
+
+--
+-- Indexes for table `buy_details`
+--
+ALTER TABLE `buy_details`
+  ADD PRIMARY KEY (`buy_det_id`);
+
+--
+-- Indexes for table `cabin_class`
+--
+ALTER TABLE `cabin_class`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cabin_sub_class`
+--
+ALTER TABLE `cabin_sub_class`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `commission_payment`
+--
+ALTER TABLE `commission_payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `country`
+--
+ALTER TABLE `country`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `diagnostic_test_group`
+--
+ALTER TABLE `diagnostic_test_group`
+  ADD PRIMARY KEY (`test_id`);
+
+--
+-- Indexes for table `diagnostic_test_subgroup`
+--
+ALTER TABLE `diagnostic_test_subgroup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `director`
+--
+ALTER TABLE `director`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `discount_commission_type`
+--
+ALTER TABLE `discount_commission_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `districts`
+--
+ALTER TABLE `districts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `divisions`
+--
+ALTER TABLE `divisions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctor`
+--
+ALTER TABLE `doctor`
+  ADD PRIMARY KEY (`doctor_id`);
+
+--
+-- Indexes for table `doctor_schedule`
+--
+ALTER TABLE `doctor_schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doc_appointment`
+--
+ALTER TABLE `doc_appointment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doc_comission_distribution`
+--
+ALTER TABLE `doc_comission_distribution`
+  ADD PRIMARY KEY (`doc_com_id`);
+
+--
+-- Indexes for table `doc_comission_style_type`
+--
+ALTER TABLE `doc_comission_style_type`
+  ADD PRIMARY KEY (`doc_com_type_int`);
+
+--
+-- Indexes for table `doc_commission`
+--
+ALTER TABLE `doc_commission`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doc_commission_details`
+--
+ALTER TABLE `doc_commission_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doc_commission_details_history`
+--
+ALTER TABLE `doc_commission_details_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doc_commission_history`
+--
+ALTER TABLE `doc_commission_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dose_schedule`
+--
+ALTER TABLE `dose_schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `due_collection`
+--
+ALTER TABLE `due_collection`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `due_collection_history`
+--
+ALTER TABLE `due_collection_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `expire_date`
+--
+ALTER TABLE `expire_date`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `generic_info`
+--
+ALTER TABLE `generic_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hospital`
+--
+ALTER TABLE `hospital`
+  ADD PRIMARY KEY (`hospital_id`);
+
+--
+-- Indexes for table `ipd_final_bill`
+--
+ALTER TABLE `ipd_final_bill`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ipd_patient_due_history`
+--
+ALTER TABLE `ipd_patient_due_history`
+  ADD PRIMARY KEY (`due_id`);
+
+--
+-- Indexes for table `ipd_patient_info`
+--
+ALTER TABLE `ipd_patient_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `reg_id` (`reg_id`);
+
+--
+-- Indexes for table `ipd_patient_order_info`
+--
+ALTER TABLE `ipd_patient_order_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `local_patient_info`
+--
+ALTER TABLE `local_patient_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `login_log`
+--
+ALTER TABLE `login_log`
+  ADD PRIMARY KEY (`logid`);
+
+--
+-- Indexes for table `make_order_pharmacy`
+--
+ALTER TABLE `make_order_pharmacy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `marketing_officer`
+--
+ALTER TABLE `marketing_officer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `medicine_info`
+--
+ALTER TABLE `medicine_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `multi_result`
+--
+ALTER TABLE `multi_result`
+  ADD PRIMARY KEY (`multi_path_id`);
+
+--
+-- Indexes for table `opd_patient_info`
+--
+ALTER TABLE `opd_patient_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `opd_patient_test_details_info`
+--
+ALTER TABLE `opd_patient_test_details_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `opd_patient_test_details_info_history`
+--
+ALTER TABLE `opd_patient_test_details_info_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `opd_patient_test_order_info`
+--
+ALTER TABLE `opd_patient_test_order_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `opd_patient_test_order_info_history`
+--
+ALTER TABLE `opd_patient_test_order_info_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `operation_info`
+--
+ALTER TABLE `operation_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `operation_patient_list`
+--
+ALTER TABLE `operation_patient_list`
+  ADD PRIMARY KEY (`opid`);
+
+--
+-- Indexes for table `outdoor_service_details`
+--
+ALTER TABLE `outdoor_service_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `outdoor_service_order_info`
+--
+ALTER TABLE `outdoor_service_order_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pack_size_info`
+--
+ALTER TABLE `pack_size_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pathologoy`
+--
+ALTER TABLE `pathologoy`
+  ADD PRIMARY KEY (`pathologoy_id`);
+
+--
+-- Indexes for table `patient_timeline`
+--
+ALTER TABLE `patient_timeline`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `patient_transaction_info`
+--
+ALTER TABLE `patient_transaction_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`pay_id`);
+
+--
+-- Indexes for table `payment_history`
+--
+ALTER TABLE `payment_history`
+  ADD PRIMARY KEY (`pay_id`);
+
+--
+-- Indexes for table `permissions`
+--
+ALTER TABLE `permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
+-- Indexes for table `permissions_group`
+--
+ALTER TABLE `permissions_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD PRIMARY KEY (`role_id`,`permission_id`);
+
+--
+-- Indexes for table `pharmacy_due_collection`
+--
+ALTER TABLE `pharmacy_due_collection`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `prescription`
+--
+ALTER TABLE `prescription`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `prescription_details`
+--
+ALTER TABLE `prescription_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `registration`
+--
+ALTER TABLE `registration`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `relation_info`
+--
+ALTER TABLE `relation_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `return_product`
+--
+ALTER TABLE `return_product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `return_product_det`
+--
+ALTER TABLE `return_product_det`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sell`
+--
+ALTER TABLE `sell`
+  ADD PRIMARY KEY (`sell_id`);
+
+--
+-- Indexes for table `sell_details`
+--
+ALTER TABLE `sell_details`
+  ADD PRIMARY KEY (`sell_det_id`);
+
+--
+-- Indexes for table `sell_details_history`
+--
+ALTER TABLE `sell_details_history`
+  ADD PRIMARY KEY (`sell_det_id`);
+
+--
+-- Indexes for table `sell_history`
+--
+ALTER TABLE `sell_history`
+  ADD PRIMARY KEY (`sell_id`);
+
+--
+-- Indexes for table `service_details`
+--
+ALTER TABLE `service_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_info`
+--
+ALTER TABLE `service_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_order_info`
+--
+ALTER TABLE `service_order_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_patient_list`
+--
+ALTER TABLE `service_patient_list`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indexes for table `service_payment_details`
+--
+ALTER TABLE `service_payment_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `share_holder_member`
+--
+ALTER TABLE `share_holder_member`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `share_holder_type`
+--
+ALTER TABLE `share_holder_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sh_tbl_ambulance_reciept`
+--
+ALTER TABLE `sh_tbl_ambulance_reciept`
+  ADD PRIMARY KEY (`amb_reciept_id`);
+
+--
+-- Indexes for table `sh_tbl_department`
+--
+ALTER TABLE `sh_tbl_department`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sh_tbl_emergency_reciept`
+--
+ALTER TABLE `sh_tbl_emergency_reciept`
+  ADD PRIMARY KEY (`emergency_reciept_id`);
+
+--
+-- Indexes for table `sh_tbl_lab_in_product`
+--
+ALTER TABLE `sh_tbl_lab_in_product`
+  ADD PRIMARY KEY (`buy_id`);
+
+--
+-- Indexes for table `sh_tbl_lab_in_product_details`
+--
+ALTER TABLE `sh_tbl_lab_in_product_details`
+  ADD PRIMARY KEY (`buy_det_id`);
+
+--
+-- Indexes for table `sh_tbl_lab_product`
+--
+ALTER TABLE `sh_tbl_lab_product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sh_tbl_lab_return_product`
+--
+ALTER TABLE `sh_tbl_lab_return_product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sh_tbl_lab_return_product_det`
+--
+ALTER TABLE `sh_tbl_lab_return_product_det`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sh_tbl_staff`
+--
+ALTER TABLE `sh_tbl_staff`
+  ADD PRIMARY KEY (`staff_id`);
+
+--
+-- Indexes for table `sh_tbl_staff_salary_genrate`
+--
+ALTER TABLE `sh_tbl_staff_salary_genrate`
+  ADD PRIMARY KEY (`salary_gen_id`);
+
+--
+-- Indexes for table `sh_tbl_stock`
+--
+ALTER TABLE `sh_tbl_stock`
+  ADD PRIMARY KEY (`st_id`);
+
+--
+-- Indexes for table `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`st_id`);
+
+--
+-- Indexes for table `stock_history`
+--
+ALTER TABLE `stock_history`
+  ADD PRIMARY KEY (`st_id`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_ambulance`
+--
+ALTER TABLE `tbl_ambulance`
+  ADD PRIMARY KEY (`ambulance_id`);
+
+--
+-- Indexes for table `unit_info`
+--
+ALTER TABLE `unit_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vat`
+--
+ALTER TABLE `vat`
+  ADD PRIMARY KEY (`id`);

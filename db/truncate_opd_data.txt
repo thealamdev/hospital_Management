@@ -1,0 +1,9 @@
+TRUNCATE opd_patient_info;
+TRUNCATE opd_patient_test_order_info;
+TRUNCATE opd_patient_test_details_info;
+TRUNCATE due_collection;
+TRUNCATE doc_commission;
+TRUNCATE doc_commission_details;
+TRUNCATE pathologoy;
+TRUNCATE multi_result;
+TRUNCATE commission_payment;

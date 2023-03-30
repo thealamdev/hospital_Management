@@ -1,0 +1,33 @@
+CREATE TABLE `commission_payment` (
+  `id` int(11) NOT NULL,
+  `com_id` int(11) DEFAULT '0',
+  `current_com` double NOT NULL DEFAULT '0',
+  `old_com` double DEFAULT '0',
+  `com_subtract` double NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '1= paid, 0 =unpaid',
+  `paid_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `paid_com` double NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `patient_id` int(150) DEFAULT NULL,
+  `doc_name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `doc_id` int(11) NOT NULL DEFAULT '0',
+  `doc_type` int(11) NOT NULL DEFAULT '0' COMMENT '1=ref 2=quack 3=self'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE `due_collection` (
+  `id` int(11) NOT NULL,
+  `order_id` varchar(255) DEFAULT NULL,
+  `patient_id` int(255) DEFAULT '0',
+  `total_amount` double NOT NULL DEFAULT '0',
+  `discount` double(10,2) DEFAULT '0.00',
+  `vat` double DEFAULT '0',
+  `current_due` double(10,2) NOT NULL DEFAULT '0.00',
+  `paid_due` double(10,2) DEFAULT '0.00',
+  `discount_ref` varchar(250) DEFAULT NULL,
+  `due_type` int(11) NOT NULL DEFAULT '0' COMMENT '1=opd, 2=opd',
+  `old_due` double(10,2) DEFAULT '0.00',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

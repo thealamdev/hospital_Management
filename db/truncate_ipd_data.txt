@@ -1,0 +1,9 @@
+TRUNCATE ipd_patient_info;
+TRUNCATE ipd_final_bill;
+TRUNCATE due_collection;
+TRUNCATE service_details;
+TRUNCATE service_payment_details;
+TRUNCATE patient_timeline;
+TRUNCATE outdoor_service_order_info;
+TRUNCATE outdoor_service_details;
+UPDATE room set is_busy=0;

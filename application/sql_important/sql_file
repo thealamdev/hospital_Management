@@ -1,0 +1,14 @@
+SELECT s.doc_id,d.doctor_title
+    , MAX(
+        CASE WHEN schedule_day = 'Saturday' THEN CONCAT(start_time,'-',end_time) END
+    ) as saturday
+    , MAX(CASE WHEN schedule_day = 'Sunday' THEN CONCAT(start_time,'-',end_time) END) as sunday
+     , MAX(CASE WHEN schedule_day = 'Monday' THEN CONCAT(start_time,'-',end_time) END) as monday
+      , MAX(CASE WHEN schedule_day = 'Tuesday' THEN CONCAT(start_time,'-',end_time) END) as tuesday
+       , MAX(CASE WHEN schedule_day = 'Wednesday' THEN CONCAT(start_time,'-',end_time) END) as wednesday
+        , MAX(CASE WHEN schedule_day = 'Thursday' THEN CONCAT(start_time,'-',end_time) END) as thursday
+         , MAX(CASE WHEN schedule_day = 'Friday' THEN CONCAT(start_time,'-',end_time) END) as friday
+   
+FROM doctor_schedule s JOIN doctor d
+on s.doc_id=d.doctor_id 
+GROUP BY s.doc_id
